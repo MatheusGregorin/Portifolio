@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,24 +8,105 @@
 
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Vue via CDN -->
-  <script src="./vue.js"></script>
+  <script src="./js/vue.js"></script>
+  <!-- Css -->
+  <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
-  <div id="app" class="p-6">
-    <h1 class="text-3xl font-bold text-center text-blue-600">Meu Portfólio</h1>
-    <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded" @click="contar++">
-      Cliquei {{ contar }} vezes
-    </button>
+
+  <!-- APP -->
+  <div id="app" class="p-6 w-full min-h-screen bg-gray-100">
+
+    <!-- Menu -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 h-16">
+
+      <nav class="bg-white transition-all duration-300 ease-in-out ml-6">
+        <div class="flex items-center justify-between h-16 pl-2">
+          <!-- Itens da navbar para telas grandes -->
+          <div class="hidden sm:flex space-x-6">
+            <div class="text-lg text-black">
+              <a href="index.html">Início</a>
+            </div>
+            <div class="text-lg text-black">
+              <a href="about.html">Sobre</a>
+            </div>
+          </div>
+
+          <!-- Menu mobile (ícone de hambúrguer para telas pequenas) -->
+          <div class="sm:flex items-center">
+            <button @click="toggleMenu" class="text-black">
+              <svg v-if="!isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+              <svg v-if="isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu dropdown para telas pequenas -->
+        <div v-if="isMenuOpen" class="sm:hidden bg-white shadow-md absolute left-0 right-0 top-16">
+          <div class="text-lg text-black px-6 py-4">
+            <a href="index.html">Início</a>
+          </div>
+          <div class="text-lg text-black px-6 py-4">
+            <a href="about.html">Sobre</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Seção 1 -->
+    <div class="flex grid mt-14 w-full h-[150vh] p-2 gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Primeira div com a imagem -->
+      <div class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-[url(/assets/reports_DB.png)] rounded-lg shadow-md justify-center items-end">
+        <div class="flex flex-col w-full h-[10vh] mt-2 bg-white">
+          <p class="text-black">Nome da Imagem 1</p>
+          <a href="https://example.com" class="text-blue-500">Clique aqui</a>
+        </div>
+      </div>
+
+      <div class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-[url(/assets/reports_DB.png)] rounded-lg shadow-md justify-center items-end">
+        <div class="flex flex-col w-full h-[10vh] mt-2 bg-white">
+          <p class="text-black">Nome da Imagem 1</p>
+          <a href="https://example.com" class="text-blue-500">Clique aqui</a>
+        </div>
+      </div>
+
+      <div class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-[url(/assets/reports_DB.png)] rounded-lg shadow-md justify-center items-end">
+        <div class="flex flex-col w-full h-[10vh] mt-2 bg-white">
+          <p class="text-black">Nome da Imagem 1</p>
+          <a href="https://example.com" class="text-blue-500">Clique aqui</a>
+        </div>
+      </div>
+      
+      <!-- add mais divs aqui de acordo com os projetos -->
+
+    </div>
+
   </div>
 
   <script>
     Vue.createApp({
       data() {
-        return { contar: 0 }
-      }
+        return { 
+          isMenuOpen: false, // Estado para controlar o menu
+        }
+      },
+      methods: {
+        toggleMenu() {
+          this.isMenuOpen = !this.isMenuOpen; // Alterna entre aberto e fechado
+        },
+      },
     }).mount("#app")
   </script>
+
 </body>
+
 </html>

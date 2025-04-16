@@ -1,0 +1,42 @@
+/* Animação de cima para baixo */
+@keyframes moveDown {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 40px;
+        /* Ajuste a distância para o movimento */
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+.welcome {
+    height: 30vh;
+    width: 100%;
+    font-size: 1.20rem;
+    display: flex;
+    color: rgb(85, 85, 85);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: moveDown 2s ease-in-out infinite;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    border-radius: 32px;
+}
+
+.welcome:hover {
+    background-color: rgba(187, 187, 187, 0.192);
+}
+
+@media (max-width: 640px) {
+    .welcome {
+        font-size: 1.10rem;
+        /* equivalente a 14px */
+    }
+}

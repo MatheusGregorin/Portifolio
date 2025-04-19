@@ -100,7 +100,7 @@
           class="w-[35vh] h-[50vh] sm:w-[70vh] sm:h-[60vh] object-cover">
       </div>
 
-      <div class="text-lg text-left pr-0 md:pr-12 sm:text-md pt-4 text-center lg:text-left">
+      <div class="text-lg text-left pr-0 md:pr-12 text-md sm:text-md pt-4 text-center lg:text-left">
         Me chamo Matheus Gregorin sou entusiasta de tecnologia, atuo na área como desenvolvedor back-end desde 2022,
         trabalhando
         arduamente para me tornar um desenvolvedor fullstack. Atualmente formado em
@@ -125,7 +125,7 @@
     </section>
 
     <!-- Seção 1 -->
-    <section id="section-1" class="grid mt-14 w-full h-[150vh] p-2 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
+    <section id="section-1" class="grid w-full h-[150vh] pt-20 px-6 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
 
       <!-- Primeira div com a imagem -->
       <div class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-white rounded-lg shadow-md justify-center items-end">
@@ -166,7 +166,7 @@
           return {
             isMenuOpen: false, // Estado para controlar o menu
             isMode: false, // Estado para controlar o modo escuro
-            bg: 'bg-gray-100'
+            bg: 'bg-gray-100 text-black'
           }
         },
         methods: {

@@ -20,6 +20,7 @@
     font-size: 1.20rem;
     display: flex;
     color: rgb(85, 85, 85);
+    background-color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -31,7 +32,15 @@
 }
 
 .welcome:hover {
-    background-color: rgba(187, 187, 187, 0.192);
+    background-color: rgba(139, 139, 139, 0.192);
+}
+
+.tec {
+    transition: 0.8s ease-in-out;
+}
+
+.tec:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 640px) {

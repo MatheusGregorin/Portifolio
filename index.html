@@ -27,25 +27,25 @@
           <!-- Itens da navbar para telas grandes -->
           <div class="hidden sm:flex space-x-6 ml-6">
             <div class="text-lg">
-              <a href="index.html">Início</a>
+              <a href="index.html" :class="colorText">Início</a>
             </div>
             <div class="text-lg">
-              <a href="about.html">Sobre</a>
+              <a href="about.html" :class="colorText">Sobre</a>
             </div>
             <div class="text-lg cursor-pointer">
-              <a @click="toggleMode()">Modo Dark</a>
+              <a @click="toggleMode()" :class="colorText">Modo Dark</a>
             </div>
           </div>
 
           <!-- Menu mobile (ícone de hambúrguer para telas pequenas) -->
           <div class="sm:hidden flex items-center">
             <button @click="toggleMenu" :class="bg">
-              <svg v-if="!isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <svg v-if="!isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="gray"
+                viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
-              <svg v-if="isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <svg v-if="isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="gray"
+                viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </button>
@@ -53,15 +53,15 @@
         </div>
 
         <!-- Menu dropdown para telas pequenas -->
-        <div v-if="isMenuOpen" class="sm:hidden shadow-md absolute left-0 right-0 top-16" :class="bg">
-          <div class="text-lg px-6 py-4 border-b-2">
-            <a href="index.html">Início</a>
+        <div v-if="isMenuOpen" class="sm:hidden shadow-md absolute left-0 right-0 top-16 border-b-2" :class="bg">
+          <div class="text-lg px-6 py-4 border-b-2 border-t-2">
+            <a href="index.html" :class="colorText">Início</a>
           </div>
           <div class="text-lg px-6 py-4 border-b-2">
-            <a href="about.html">Sobre</a>
+            <a href="about.html" :class="colorText">Sobre</a>
           </div>
           <div class="text-lg px-6 py-4 ">
-            <a @click="toggleMode()">Modo Dark</a>
+            <a @click="toggleMode()" :class="colorText">Modo Dark</a>
           </div>
         </div>
       </nav>
@@ -78,9 +78,10 @@
     </section>
 
     <!-- Seção de chamada ao sobre mim -->
-    <section class=" flex items-start justify-center h-[35vh]" :class="bg">
+    <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
+      @click="goToSection('section-about')">
       <div class="welcome">
-        <a class="cursor-pointer" href="#section-about">Deixe-me apresentar</a>
+        <a class="cursor-pointer" href="#section-about" :class="colorText">Deixe-me apresentar</a>
         <svg class="cursor-pointer" href="#section-about" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -100,7 +101,7 @@
           class="w-[35vh] h-[50vh] sm:w-[70vh] sm:h-[60vh] object-cover">
       </div>
 
-      <div class="text-lg text-left pr-0 md:pr-12 text-md sm:text-md pt-4 text-center lg:text-left">
+      <div class="text-lg text-left pr-0 md:pr-12 text-md sm:text-md pt-4 text-center lg:text-left" :class="colorText">
         Me chamo Matheus Gregorin sou entusiasta de tecnologia, atuo na área como desenvolvedor back-end desde 2022,
         trabalhando
         arduamente para me tornar um desenvolvedor fullstack. Atualmente formado em
@@ -111,9 +112,10 @@
     </section>
 
     <!-- Seção de chamada a tecnologias -->
-    <section class=" flex items-start justify-center h-[35vh]" :class="bg">
+    <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
+      @click="goToSection('section-tec')">
       <div class="welcome">
-        <a class="cursor-pointer" href="#section-1">Tecnologias de conhecimento</a>
+        <a class="cursor-pointer" href="#section-1" :class="colorText">Tecnologias de conhecimento</a>
         <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -125,28 +127,108 @@
     </section>
 
     <!-- Seção 1 -->
-    <section id="section-1" class="grid w-full h-[150vh] pt-20 px-6 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
+    <section id="section-tec"
+      class="grid w-full h-auto pt-20 pb-20 px-2 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
 
       <!-- Primeira div com a imagem -->
-      <div class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-white rounded-lg shadow-md justify-center items-end">
-        <div class="flex flex-col w-full h-[10vh] mt-2 bg-white">
-          <!-- bg-[url(./assets/reports_DB.png)] -->
-          <p class="text-black">Nome da Imagem 1</p>
-          <a href="https://example.com" class="text-blue-500">Clique aqui</a>
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/php.png" alt="">
+        <div class="flex flex-row w-full h-[10vh] pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> PHP |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/laravel.png" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Laravel |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/python.png" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Python |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/javascript.jpg" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Javascript |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/nodejs.jpg" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Node Js |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/react.jpg" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> react Js |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/mysql.jpeg" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Mysql |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/mongodb.jpeg" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Mongo DB |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+        </div>
+      </div>
+
+      <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
+        <img class="h-[40vh] w-full" src="./assets/sqlite.jpg" alt="">
+        <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
+          <p class="text-black text-lg mr-2" :class="colorText"> Sqlite |</p>
+          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
         </div>
       </div>
 
     </section>
 
+    <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
+      @click="goToSection('section-project')">
+      <div class="welcome">
+        <a class="cursor-pointer" href="#section-1" :class="colorText">Meus Projetos</a>
+        <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 16l-4-4h8z" />
+          <path d="M12 20l-4-4h8z" />
+        </svg>
+
+      </div>
+
+    </section>
+
     <!-- Seção 2 -->
-    <section id="section-2" class="grid mt-14 w-full h-[150vh] p-2 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <section id="section-project"
+      class="grid w-full h-[150vh] pt-20 pb-20 px-2 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
 
       <!-- Primeira div com a imagem -->
       <div
         class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-[url(./assets/reports_DB.png)] rounded-lg shadow-md justify-center items-end">
-        <div class="flex flex-col w-full h-[10vh] mt-2 bg-white">
-          <p class="text-black">Nome da Imagem 1</p>
-          <a href="https://example.com" class="text-blue-500">Clique aqui</a>
+        <div class="flex flex-col w-full h-[10vh] bg-white p-2">
+          <p class="text-black"> Reports DB </p>
+          <a href="https://example.com" class="text-blue-500"> Saiba mais... </a>
         </div>
       </div>
 
@@ -166,7 +248,8 @@
           return {
             isMenuOpen: false, // Estado para controlar o menu
             isMode: false, // Estado para controlar o modo escuro
-            bg: 'bg-gray-100 text-black'
+            bg: 'bg-gray-100 text-black',
+            colorText: 'text-black'
           }
         },
         methods: {
@@ -176,13 +259,21 @@
           toggleMode() {
             if (this.isMode) {
               this.isMode = false;
-              this.bg = 'bg-gray-100 text-black';
+              this.bg = 'bg-gray-100';
+              this.colorText = 'text-black';
             } else {
               this.isMode = true;
-              this.bg = 'bg-gray-900 text-white';
+              this.bg = 'bg-gray-900';
+              this.colorText = 'text-white';
             }
             console.log(this.bg, this.isMode);
           },
+          goToSection(section) {
+            const element = document.getElementById(section);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
         },
       }
     ).mount('#app');

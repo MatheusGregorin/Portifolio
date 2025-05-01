@@ -81,7 +81,7 @@
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-about')">
       <div class="welcome">
-        <a class="cursor-pointer" href="#section-about" :class="colorText">Deixe-me apresentar</a>
+        <a class="cursor-pointer" href="#section-about">Deixe-me apresentar</a>
         <svg class="cursor-pointer" href="#section-about" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -94,28 +94,47 @@
 
     <!-- Seção sobre mim -->
     <section id="section-about"
-      class="grid grid-cols-1 pb-10 md:grid-cols-2 place-items-center gap-1 p-2 h-auto lg:h-[80vh]" :class="bg">
+      class="grid grid-cols-1 pb-10 h-auto md:grid-cols-2 place-items-center gap-1 p-2 h-auto lg:h-[80vh]" :class="bg">
 
       <div class="w-[50vh] h-[60vh] sm:w-[85vh] sm:h-[75vh] flex justify-center items-center pt-2 sm:pt-2">
         <img src="./assets/Profile.jpeg" alt="Imagem de perfil"
           class="w-[35vh] h-[50vh] sm:w-[70vh] sm:h-[60vh] object-cover">
       </div>
 
-      <div class="text-lg text-left pr-0 md:pr-12 text-md sm:text-md pt-4 text-center lg:text-left" :class="colorText">
-        Me chamo Matheus Gregorin sou entusiasta de tecnologia, atuo na área como desenvolvedor back-end desde 2022,
-        trabalhando
-        arduamente para me tornar um desenvolvedor fullstack. Atualmente formado em
-        Análise e Desenvolvimento de Sistemas pela SPTECH SCHOOL. Adoro me desafiar com objetivos novos e ousados,
-        sempre com a intenção de aprimorar minhas técnicas e evoluir diariamente.
+      <div class="text-lg text-left pr-0  md:pr-12 text-md sm:text-md pt-4 lg:text-left" :class="colorText">
+        <div class="corrossel">
+          <div class="card">
+            Me chamo Matheus Gregorin, sou um entusiasta de tecnologia com foco em desenvolvimento de software. Desde
+            2022, atuo profissionalmente como desenvolvedor back-end, sempre buscando evoluir minhas habilidades e
+            ampliar meu conhecimento na área. Tenho formação em Análise e Desenvolvimento de Sistemas pela SPTech
+            School, onde construí uma base sólida em lógica, arquitetura de sistemas e boas práticas de desenvolvimento.
+            Sou movido por desafios e motivado a aprender constantemente, o que me ajuda a me adaptar rapidamente a
+            diferentes projetos e equipes.
+          </div>
+          <div class="card">
+            Minhas principais competências técnicas estão voltadas ao desenvolvimento back-end, com domínio em PHP,
+            Laravel, Node.js e Python. Também tenho experiência com bancos de dados relacionais e não relacionais, como
+            MySQL, MongoDB e SQLite, garantindo integração e performance em diferentes aplicações. No front-end, utilizo
+            JavaScript, Vue.js e Tailwind CSS para criar interfaces responsivas e modernas. Além disso, tenho
+            familiaridade com versionamento de código (Git), integração com APIs, consumo de serviços RESTful e noções
+            de segurança e performance em ambientes de produção.
+          </div>
+          <div class="card">
+            Meu foco atual é me consolidar como desenvolvedor fullstack, ampliando ainda mais minha atuação no front-end
+            e em tecnologias modernas como React.js e Next.js, enquanto aprofundo meus conhecimentos em arquitetura de
+            software e testes automatizados. Tenho grande interesse em contribuir com projetos desafiadores, onde posso
+            aplicar boas práticas, colaborar em equipe e crescer tanto tecnicamente quanto profissionalmente. Busco
+            oportunidades que valorizem inovação, aprendizado contínuo e impacto real.
+          </div>
+        </div>
       </div>
-
     </section>
 
     <!-- Seção de chamada a tecnologias -->
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-tec')">
       <div class="welcome">
-        <a class="cursor-pointer" href="#section-1" :class="colorText">Tecnologias de conhecimento</a>
+        <a class="cursor-pointer" href="#section-1">Tecnologias de conhecimento</a>
         <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -128,7 +147,7 @@
 
     <!-- Seção 1 -->
     <section id="section-tec"
-      class="grid w-full h-auto pt-20 pb-20 px-2 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
+      class="grid w-full h-auto pt-20 pb-20 px-12 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
 
       <!-- Primeira div com a imagem -->
       <div class="tec" class="flex-col h-[50vh] bg-gray-200 rounded-lg shadow-md justify-center items-end">
@@ -208,7 +227,7 @@
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-project')">
       <div class="welcome">
-        <a class="cursor-pointer" href="#section-1" :class="colorText">Meus Projetos</a>
+        <a class="cursor-pointer" href="#section-1">Meus Projetos</a>
         <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />

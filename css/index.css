@@ -43,9 +43,102 @@
     transform: scale(1.05);
 }
 
+.corrossel {
+    height: 55vh;
+    width: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding-top: 5px;
+    padding-left: 10px;
+    border-left: 5px solid rgba(119, 119, 119, 0.384);
+}
+
+.card {
+    height: 50vh;
+    min-width: 100%;
+    animation: slide 50s ease-in-out infinite;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(0);
+    }
+
+    31% {
+        transform: translateX(-620px);
+    }
+
+    60% {
+        transform: translateX(-620px);
+    }
+
+    61% {
+        transform: translateX(-1232px);
+    }
+
+    95% {
+        transform: translateX(-1232px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
 @media (max-width: 640px) {
     .welcome {
         font-size: 1.10rem;
         /* equivalente a 14px */
+    }
+
+    .corrossel {
+        width: 40vh;
+    }
+
+    .card {
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+    
+        30% {
+            transform: translateX(0);
+        }
+    
+        31% {
+            transform: translateX(-342px);
+        }
+
+        60% {
+            transform: translateX(-342px);
+        }
+
+        61% {
+            transform: translateX(-694px);
+        }
+
+        95% {
+            transform: translateX(-694px);
+        }
+    
+        100% {
+            transform: translateX(0);
+        }
     }
 }

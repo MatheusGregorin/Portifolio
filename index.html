@@ -10,6 +10,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Vue via CDN -->
   <script src="./js/vue.js"></script>
+  <!-- Echart -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <!-- EChart -->
+  <script src="./js/echart.js"></script>
   <!-- Css -->
   <link rel="stylesheet" href="./css/index.css">
 </head>
@@ -80,8 +84,8 @@
     <!-- Seção de chamada ao sobre mim -->
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-about')">
-      <div class="welcome">
-        <a class="cursor-pointer" href="#section-about">Deixe-me apresentar</a>
+      <div class="welcome" :class="bg">
+        <a class="cursor-pointer" href="#section-about" :class="colorText">Deixe-me apresentar</a>
         <svg class="cursor-pointer" href="#section-about" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -133,8 +137,8 @@
     <!-- Seção de chamada a tecnologias -->
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-tec')">
-      <div class="welcome">
-        <a class="cursor-pointer" href="#section-1">Tecnologias de conhecimento</a>
+      <div class="welcome" :class="bg">
+        <a class="cursor-pointer" href="#section-about" :class="colorText">Tecnologias de conhecimento</a>
         <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -154,7 +158,8 @@
         <img class="h-[40vh] w-full" src="./assets/php.png" alt="">
         <div class="flex flex-row w-full h-[10vh] pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> PHP |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://www.php.net/docs.php" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -162,7 +167,8 @@
         <img class="h-[40vh] w-full" src="./assets/laravel.png" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Laravel |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://laravel.com/docs/12.x" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -170,7 +176,8 @@
         <img class="h-[40vh] w-full" src="./assets/python.png" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Python |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://docs.python.org/3/" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -178,7 +185,8 @@
         <img class="h-[40vh] w-full" src="./assets/javascript.jpg" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Javascript |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+            class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
         </div>
       </div>
 
@@ -186,7 +194,8 @@
         <img class="h-[40vh] w-full" src="./assets/nodejs.jpg" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Node Js |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://nodejs.org/docs/latest/api/" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -194,7 +203,8 @@
         <img class="h-[40vh] w-full" src="./assets/react.jpg" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> react Js |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://react.dev/learn" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -202,7 +212,8 @@
         <img class="h-[40vh] w-full" src="./assets/mysql.jpeg" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Mysql |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://dev.mysql.com/doc/" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -210,7 +221,8 @@
         <img class="h-[40vh] w-full" src="./assets/mongodb.jpeg" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Mongo DB |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://www.mongodb.com/pt-br/docs/" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
         </div>
       </div>
 
@@ -218,7 +230,21 @@
         <img class="h-[40vh] w-full" src="./assets/sqlite.jpg" alt="">
         <div class="flex flex-row w-full h-[10vh] bg-white pl-2 sm:pl-4 pt-4 md:pl-2" :class="bg">
           <p class="text-black text-lg mr-2" :class="colorText"> Sqlite |</p>
-          <a href="https://example.com" class="text-blue-500 cursor-pointer text-lg"> Documentação... </a>
+          <a href="https://www.sqlite.org/docs.html" target="_blank" class="text-blue-500 cursor-pointer text-lg">
+            Documentação... </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Seção Dash -->
+    <section id="section-dash" class="grid w-full h-auto pt-20 pb-20 px-2 grid-cols-1 justify-center items-center" :class="bg">
+
+      <h1> Graficos </h1>
+
+      <div id="container-dash" class="flex flex-col items-center justify-center h-100 width-full bg-blue-200">
+        <div id="chart" class="h-52 w-full">
+          Grafico do Git Hub
         </div>
       </div>
 
@@ -226,8 +252,8 @@
 
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-project')">
-      <div class="welcome">
-        <a class="cursor-pointer" href="#section-1">Meus Projetos</a>
+      <div class="welcome" :class="bg">
+        <a class="cursor-pointer" href="#section-about" :class="colorText">Meus Projetos</a>
         <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
@@ -239,19 +265,19 @@
     </section>
 
     <!-- Seção 2 -->
-    <section id="section-project"
-      class="grid w-full h-[150vh] pt-20 pb-20 px-2 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" :class="bg">
+    <section id="section-project" class="grid w-full h-[250vh] pt-10 pb-10 px-12 gap-5 grid-cols-1" :class="bg">
 
-      <!-- Primeira div com a imagem -->
-      <div
-        class="flex h-[50vh] p-2 bg-cover bg-no-repeat bg-[url(./assets/reports_DB.png)] rounded-lg shadow-md justify-center items-end">
-        <div class="flex flex-col w-full h-[10vh] bg-white p-2">
-          <p class="text-black"> Reports DB </p>
-          <a href="https://example.com" class="text-blue-500"> Saiba mais... </a>
-        </div>
+      <div>
+        Menu de escolha de projetos
       </div>
 
-      <!-- add mais divs aqui de acordo com os projetos -->
+      <div>
+        Informaçẽoẽs sobre o projeto
+      </div>
+
+      <div>
+        Imagens do projeto
+      </div>
 
     </section>
 

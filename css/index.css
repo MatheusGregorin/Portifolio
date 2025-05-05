@@ -14,6 +14,10 @@
     }
 }
 
+.back {
+    background: linear-gradient(to right, #00274e, #272727);
+}
+
 .welcome {
     height: 30vh;
     width: 100%;

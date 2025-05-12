@@ -3,7 +3,7 @@ name: Deploy static site to GitHub Pages
 on:
   push:
     branches:
-      - main  # ou a branch que você utiliza
+      - main
 
 permissions:
   contents: read
@@ -23,7 +23,8 @@ jobs:
       - name: Fazer upload dos arquivos
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Caminho para os arquivos estáticos
+          path: '.'  # Caminho para os arquivos estáticos, raiz do repositório
+          # Se você tiver uma pasta específica, como 'public', use 'public' em vez de '.'
 
       - name: Realizar o deploy
         uses: actions/deploy-pages@v4

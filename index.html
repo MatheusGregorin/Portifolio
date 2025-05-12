@@ -161,18 +161,41 @@
       <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/mongodb.jpeg" alt="">
       </div>
       <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/sqlite.jpg" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/javascript.jpg" alt=""></div>
+      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/javascript.jpg" alt="">
+      </div>
     </section>
 
     <!-- Seção Dash -->
-    <section id="section-dash" class="grid w-full h-auto pt-20 pb-20 px-2 grid-cols-1 justify-center items-center"
+    <section id="section-dash"
+      class="grid w-auto h-auto justify-center items-center pt-20 pb-20 px-8 grid-cols-1 justify-center items-center"
       :class="bg">
 
-      <h1> Graficos </h1>
+      <!-- Estatísticas de projetos -->
+      <!-- <h1 class="flex justify-center items-center h-[10vh] pb-6 text-2xl" :class="colorText"> Estatísticas </h1> -->
 
-      <div id="container-dash" class="flex flex-col items-center justify-center h-100 width-full bg-blue-200">
-        <div id="chart" class="h-52 w-full">
-          Grafico do Git Hub
+      <h2 class="flex justify-center items-center h-[10vh] pb-2 text-lg" :class="colorText" :class="bg"> Linguagens por
+        Projeto
+      </h2>
+      <!-- Dash Pie -->
+      <div id="container-pie" class="flex flex-col items-center justify-center h-[45vh] width-full bg-gray-200 mb-6">
+        <div id="pie" class="h-52 w-full">
+        </div>
+      </div>
+
+      <h2 class="flex justify-center items-center h-[10vh] pb-2 text-lg" :class="colorText" :class="bg"> Repositórios
+        mais
+        Estrelados </h2>
+      <!-- Dash Bar -->
+      <div id="container-bar" class="flex flex-col items-center justify-center h-[45vh] width-full bg-gray-200 mb-6">
+        <div id="bar" class="h-52 w-full">
+        </div>
+      </div>
+
+      <h2 class="flex justify-center items-center h-[10vh] pb-2 text-lg" :class="colorText" :class="bg"> Quantidade por
+        data </h2>
+      <!-- Dash Line -->
+      <div id="container-line" class="flex flex-col items-center justify-center h-[45vh] width-full bg-gray-200 mb-6">
+        <div id="line" class="h-52 w-full">
         </div>
       </div>
 
@@ -239,7 +262,6 @@
               this.bg = 'bg-gray-900';
               this.colorText = 'text-white';
             }
-            console.log(this.bg, this.isMode);
           },
           goToSection(section) {
             const element = document.getElementById(section);

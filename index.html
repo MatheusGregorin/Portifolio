@@ -37,7 +37,7 @@
               <a href="about.html" :class="colorText">Sobre</a>
             </div>
             <div class="text-lg cursor-pointer">
-              <a @click="toggleMode()" :class="colorText">Modo Dark</a>
+              <button class="bg-gray-400 rounded-lg px-2 text-white" @click="toggleMode()"> {{ mode }} </button>
             </div>
           </div>
 
@@ -65,7 +65,7 @@
             <a href="about.html" :class="colorText">Sobre</a>
           </div>
           <div class="text-lg px-6 py-4 ">
-            <a @click="toggleMode()" :class="colorText">Modo Dark</a>
+            <button class="bg-gray-400 rounded-lg px-2 text-white" @click="toggleMode()"> {{ mode }} </button>
           </div>
         </div>
       </nav>
@@ -154,6 +154,8 @@
       <div class="min-w-[200px] h-32 flex-shrink-0"> <img class="h-[20vh] w-full" src="./assets/php.png" alt=""></div>
       <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/laravel.png" alt="">
       </div>
+      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/vueJs.jpg" alt="">
+      </div>
       <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/nodejs.jpg" alt=""></div>
       <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/python.png" alt=""></div>
       <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/react.jpg" alt=""></div>
@@ -170,33 +172,45 @@
       class="grid w-auto h-auto justify-center items-center pt-20 pb-20 px-8 grid-cols-1 justify-center items-center"
       :class="bg">
 
-      <!-- Estatísticas de projetos -->
-      <!-- <h1 class="flex justify-center items-center h-[10vh] pb-6 text-2xl" :class="colorText"> Estatísticas </h1> -->
+      <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 w-full h-auto">
 
-      <h2 class="flex justify-center items-center h-[10vh] pb-2 text-lg" :class="colorText" :class="bg"> Linguagens por
-        Projeto
-      </h2>
-      <!-- Dash Pie -->
-      <div id="container-pie" class="flex flex-col items-center justify-center h-[45vh] width-full bg-gray-200 mb-6">
-        <div id="pie" class="h-52 w-full">
+        <div id="container-kpis"
+          class="grid grid-cols-1 h-[56vh] width-full bg-gray-200 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 h-[80vh]">
+          <div id="qtdLanguages" class="grid grid-cols-1 h-[20vh] bg-blue-400 m-2 rounded">
+            <p class="flex justify-center items-center text-lg"> Quantidade de Linguagens: </p>
+            <p id="qtdLangValue" class="flex justify-center items-center"> 0 </p>
+          </div>
+          <div id="qtdStars" class="grid grid-cols-1 h-[20vh] bg-yellow-400 m-2 rounded">
+            <p class="flex justify-center items-center text-lg"> Quantidade de estrelas: </p>
+            <p id="qtdStarValue" class="flex justify-center items-center"> 0 </p>
+          </div>
+          <div id="qtdStars" class="grid grid-cols-1 h-[20vh] bg-green-400 m-2 rounded">
+            <p class="flex justify-center items-center text-lg"> Quantidade de estrelas: </p>
+            <p id="qtdStarValue" class="flex justify-center items-center"> 0 </p>
+          </div>
         </div>
-      </div>
 
-      <h2 class="flex justify-center items-center h-[10vh] pb-2 text-lg" :class="colorText" :class="bg"> Repositórios
-        mais
-        Estrelados </h2>
-      <!-- Dash Bar -->
-      <div id="container-bar" class="flex flex-col items-center justify-center h-[45vh] width-full bg-gray-200 mb-6">
-        <div id="bar" class="h-52 w-full">
+        <!-- Dash Pie -->
+        <div id="container-pie"
+          class="flex flex-col items-center lg:h-auto justify-center w-full bg-gray-200 mb-6 rounded-lg p-8">
+          <div id="pie" class="h-52 w-full">
+          </div>
         </div>
-      </div>
 
-      <h2 class="flex justify-center items-center h-[10vh] pb-2 text-lg" :class="colorText" :class="bg"> Quantidade por
-        data </h2>
-      <!-- Dash Line -->
-      <div id="container-line" class="flex flex-col items-center justify-center h-[45vh] width-full bg-gray-200 mb-6">
-        <div id="line" class="h-52 w-full">
+        <!-- Dash Line -->
+        <div id="container-line"
+          class="flex flex-col items-center lg:h-auto justify-center w-full bg-gray-200 mb-6 rounded-lg p-8">
+          <div id="line" class="h-52 w-full">
+          </div>
         </div>
+
+        <!-- Dash Bar -->
+        <div id="container-bar"
+          class="flex flex-col items-center lg:h-auto justify-center w-full bg-gray-200 mb-6 rounded-lg p-8">
+          <div id="bar" class="h-52 w-full">
+          </div>
+        </div>
+
       </div>
 
     </section>
@@ -245,7 +259,8 @@
             isMenuOpen: false, // Estado para controlar o menu
             isMode: false, // Estado para controlar o modo escuro
             bg: 'bg-gray-100 text-black',
-            colorText: 'text-black'
+            colorText: 'text-black',
+            mode: 'Modo Dark',
           }
         },
         methods: {
@@ -257,10 +272,12 @@
               this.isMode = false;
               this.bg = 'bg-gray-100';
               this.colorText = 'text-black';
+              this.mode = 'Modo Dark';
             } else {
               this.isMode = true;
               this.bg = 'bg-gray-900';
               this.colorText = 'text-white';
+              this.mode = 'Modo Light';
             }
           },
           goToSection(section) {

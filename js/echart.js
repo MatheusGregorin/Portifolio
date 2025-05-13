@@ -1,3 +1,7 @@
+let counter = {};
+let languages = [];
+let stars = [];
+
 async function fetchRepositories() {
     const resquest = await fetch('https://api.github.com/users/matheus-gregorin/repos');
     return await resquest.json();
@@ -8,8 +12,6 @@ function loadPie() {
     fetchRepositories().then(repositories => {
         const pie = echarts.init(document.getElementById('pie'));
 
-        const counter = {};
-        const languages = [];
         repositories.forEach(repository => {
             const lang = repository.language || 'Outros';
             counter[lang] = (counter[lang] || 0) + 1;
@@ -21,7 +23,7 @@ function loadPie() {
 
         pie.setOption({
             title: {
-                text: '',
+                text: 'Linguagens mais usadas',
                 left: 'center'
             },
             tooltip: {
@@ -46,7 +48,7 @@ function loadPie() {
             }]
         });
 
-        window.addEventListener('resize', () => chart.resize());
+        window.addEventListener('resize', () => pie.resize());
     });
 }
 
@@ -56,11 +58,11 @@ function loadBar() {
         const bar = echarts.init(document.getElementById('bar'));
 
         const names = repositories.map(repo => repo.name);
-        const stars = repositories.map(repo => repo.stargazers_count);
+        stars = repositories.map(repo => repo.stargazers_count);
 
         bar.setOption({
             title: {
-                text: '',
+                text: 'Estrelas por Repositório',
                 left: 'center'
             },
             tooltip: {
@@ -93,7 +95,7 @@ function loadLine() {
 
         line.setOption({
             title: {
-                text: '',
+                text: 'Projetos por periodo',
                 left: 'center'
             },
             tooltip: {
@@ -133,3 +135,19 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBar();  // Chama a função do gráfico de barras
     loadLine(); // Chama a função do gráfico de linha
 });
+
+setTimeout(() => {
+    loadKpis();
+}, 1000);
+
+function loadKpis(){
+    const qtd = document.getElementById('qtdLangValue');
+    qtd.innerHTML = `${languages.length}`;
+
+    const star = document.getElementById('qtdStarValue');
+    stars.forEach((value, index) => {
+        if(value > 0){
+            star.innerHTML++;
+        }
+    })
+}

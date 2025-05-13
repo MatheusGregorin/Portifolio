@@ -184,24 +184,29 @@
 
     <!-- Seção Dash -->
     <section id="section-dash"
-      class="grid w-auto h-auto justify-center items-center pt-[8vh] pb-20 px-8 grid-cols-1 justify-center items-center"
+      class="grid w-auto h-auto justify-center items-center pt-[8vh] pb-20 px-4 grid-cols-1 justify-center items-center"
       :class="bg">
 
       <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 w-full h-auto">
 
         <div id="container-kpis"
-          class="grid grid-cols-1 h-[56vh] width-full bg-gray-200 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 h-[80vh]">
-          <div id="qtdLanguages" class="grid grid-cols-1 h-[20vh] bg-blue-400 m-2 rounded">
-            <p class="flex justify-center items-center text-lg"> Quantidade de Linguagens: </p>
-            <p id="qtdLangValue" class="flex justify-center items-center"> 0 </p>
+          class="grid grid-cols-1 h-auto width-full bg-gray-200 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+          <div id="qtdLanguages" :class="bg" class="grid grid-cols-1 h-[15vh] bg-blue-400 m-2 rounded justify-center items-center">
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de Linguagens: </p>
+            <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
-          <div id="qtdStars" class="grid grid-cols-1 h-[20vh] bg-yellow-400 m-2 rounded">
-            <p class="flex justify-center items-center text-lg"> Quantidade de estrelas: </p>
-            <p id="qtdStarValue" class="flex justify-center items-center"> 0 </p>
+          <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de estrelas: </p>
+            <p id="qtdStarValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
-          <div id="qtdStars" class="grid grid-cols-1 h-[20vh] bg-green-400 m-2 rounded">
-            <p class="flex justify-center items-center text-lg"> Quantidade de estrelas: </p>
-            <p id="qtdStarValue" class="flex justify-center items-center"> 0 </p>
+          <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de estrelas: </p>
+            <p id="qtdStarValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
+          </div>
+
+          <div id="qt" class="grid grid-cols-1 h-[15vh] m-2 rounded" :class="bg">
+            <p class="flex justify-center items-center text-md h-auto"></p>
+            <p id="qt" class="flex justify-center items-center"></p>
           </div>
         </div>
 

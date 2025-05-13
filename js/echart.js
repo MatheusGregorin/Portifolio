@@ -105,7 +105,7 @@ function loadLine() {
                 type: 'category',
                 data: dates,
                 axisLabel: {
-                    rotate: 45, // Rotaciona as labels das datas para melhor visualização
+                    rotate: 80, // Rotaciona as labels das datas para melhor visualização
                     interval: 0  // Exibe todas as datas
                 }
             },

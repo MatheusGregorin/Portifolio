@@ -82,7 +82,7 @@
     </section>
 
     <!-- Seção de chamada ao sobre mim -->
-    <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
+    <section class="flex items-start justify-center h-[25vh] cursor-pointer" :class="bg"
       @click="goToSection('section-about')">
       <div class="welcome" :class="bg">
         <a class="cursor-pointer" href="#section-about" :class="colorText">Deixe-me apresentar</a>
@@ -98,7 +98,8 @@
 
     <!-- Seção sobre mim -->
     <section id="section-about"
-      class="grid grid-cols-1 pb-10 h-auto md:grid-cols-2 place-items-center gap-1 p-2 h-auto lg:h-[80vh]" :class="bg">
+      class="grid grid-cols-1 pt-10 pb-10 h-auto md:grid-cols-2 place-items-center gap-1 p-2 h-auto lg:h-[80vh]"
+      :class="bg">
 
       <div class="w-[50vh] h-[60vh] sm:w-[85vh] sm:h-[75vh] flex justify-center items-center pt-2 sm:pt-2">
         <img src="./assets/Profile.jpeg" alt="Imagem de perfil"
@@ -134,42 +135,56 @@
       </div>
     </section>
 
-    <!-- Seção de chamada a tecnologias -->
-    <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
-      @click="goToSection('section-tec')">
-      <div class="welcome" :class="bg">
-        <a class="cursor-pointer" href="#section-tec" :class="colorText">Tecnologias de dominío</a>
-        <svg class="cursor-pointer" href="#section-tec" width="56" height="56" fill="#acacac"
-          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 16l-4-4h8z" />
-          <path d="M12 20l-4-4h8z" />
-        </svg>
-
-      </div>
-
-    </section>
+    <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> 💻 Tecnologias de
+        conhecimento </h2>
+      <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 16l-4-4h8z" />
+        <path d="M12 20l-4-4h8z" />
+      </svg>
+    </div>
 
     <!-- Seção Tec -->
-    <section id="section-tec" class="flex flex-nowrap overflow-x-auto h-[40vh] space-x-4 p-4 items-center" :class="bg">
-      <div class="min-w-[200px] h-32 flex-shrink-0"> <img class="h-[20vh] w-full" src="./assets/php.png" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/laravel.png" alt="">
+    <section id="section-tec"
+      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[40vh] bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"> <img class="h-[22vh] w-full rounded-lg"
+          src="./assets/php.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/laravel.png" alt="">
       </div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/vueJs.jpg" alt="">
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/vueJs.jpg" alt="">
       </div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/nodejs.jpg" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/python.png" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/react.jpg" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/mysql.jpeg" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/mongodb.jpeg" alt="">
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/nodejs.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/python.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/react.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/mysql.jpeg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/mongodb.jpeg" alt="">
       </div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/sqlite.jpg" alt=""></div>
-      <div class="min-w-[200px] h-32 flex-shrink-0"><img class="h-[20vh] w-full" src="./assets/javascript.jpg" alt="">
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/sqlite.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/javascript.jpg" alt="">
       </div>
     </section>
+
+    <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> 📊 Estatistícas de
+        Projetos </h2>
+      <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 16l-4-4h8z" />
+        <path d="M12 20l-4-4h8z" />
+      </svg>
+    </div>
 
     <!-- Seção Dash -->
     <section id="section-dash"
-      class="grid w-auto h-auto justify-center items-center pt-20 pb-20 px-8 grid-cols-1 justify-center items-center"
+      class="grid w-auto h-auto justify-center items-center pt-[8vh] pb-20 px-8 grid-cols-1 justify-center items-center"
       :class="bg">
 
       <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 w-full h-auto">
@@ -258,8 +273,8 @@
           return {
             isMenuOpen: false, // Estado para controlar o menu
             isMode: false, // Estado para controlar o modo escuro
-            bg: 'bg-gray-100 text-black',
-            colorText: 'text-black',
+            bg: 'bg-gray-100 text-gray-600',
+            colorText: 'text-gray-600',
             mode: 'Modo Dark',
           }
         },
@@ -271,7 +286,7 @@
             if (this.isMode) {
               this.isMode = false;
               this.bg = 'bg-gray-100';
-              this.colorText = 'text-black';
+              this.colorText = 'text-gray-600';
               this.mode = 'Modo Dark';
             } else {
               this.isMode = true;

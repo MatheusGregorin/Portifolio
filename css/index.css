@@ -19,12 +19,12 @@
 }
 
 .welcome {
-    height: 30vh;
+    height: 18vh;
     width: 100%;
-    font-size: 1.20rem;
+    font-size: 1.4rem;
     display: flex;
-    color: rgb(85, 85, 85);
-    background-color: white;
+    color: rgba(139, 139, 139, 0.192);
+    background-color: rgba(179, 179, 179, 0.192);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -37,11 +37,6 @@
 
 .welcome:hover {
     background-color: rgba(139, 139, 139, 0.192);
-}
-
-a:hover {
-    transform: scale(1.01);
-    text-shadow: 1px 1px 2px rgba(64, 146, 214, 0.39);
 }
 
 .corrossel {

@@ -72,7 +72,7 @@
     </header>
 
     <!-- Seção Apresentação do Portifólio -->
-    <section class="mt-14 w-full h-[60vh] p-2 bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+    <section class="mt-14 w-full h-[60vh] p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
 
       <div class="flex flex-col items-center justify-center h-full">
         <h1 class="text-4xl font-bold text-white">Matheus Gregorin</h1>
@@ -184,15 +184,16 @@
 
     <!-- Seção Dash -->
     <section id="section-dash"
-      class="grid w-auto h-auto justify-center items-center pt-[8vh] pb-20 px-4 grid-cols-1 justify-center items-center"
-      :class="bg">
+      class="grid w-auto h-auto justify-center items-center pt-[8vh] pb-20 px-4 grid-cols-1 justify-center items-center bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
 
       <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 w-full h-auto">
 
         <div id="container-kpis"
           class="grid grid-cols-1 h-auto width-full bg-gray-200 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
-          <div id="qtdLanguages" :class="bg" class="grid grid-cols-1 h-[15vh] bg-blue-400 m-2 rounded justify-center items-center">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de Linguagens: </p>
+          <div id="qtdLanguages" :class="bg"
+            class="grid grid-cols-1 h-[15vh] bg-blue-400 m-2 rounded justify-center items-center">
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de Linguagens:
+            </p>
             <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">

@@ -8,7 +8,7 @@ async function fetchRepositories() {
     return await resquest.json();
 }
 
-// Função 1: Carregar o gráfico de pizza
+// Função 1: PIZZA
 function loadPie() {
     fetchRepositories().then(repositories => {
         const pie = echarts.init(document.getElementById('pie'));
@@ -70,7 +70,7 @@ function loadPie() {
     });
 }
 
-// Função 2: Carregar outro gráfico ou fazer outra ação
+// Função 2: LINHAS
 function loadLine() {
     fetchRepositories().then(repositories => {
         const line = echarts.init(document.getElementById('line'));
@@ -129,13 +129,15 @@ function loadLine() {
     });
 }
 
-// Função 3: Carregar outro gráfico ou fazer outra ação
+// Função 3: BARRAS
 function loadBar() {
     fetchRepositories().then(repositories => {
         const bar = echarts.init(document.getElementById('bar'));
 
         const names = repositories.map(repo => repo.name);
         stars = repositories.map(repo => repo.stargazers_count);
+
+        console.log(stars, names);
 
         bar.setOption({
             title: {
@@ -153,7 +155,9 @@ function loadBar() {
                 type: 'category',
                 data: names,
                 axisLabel: {
-                    color: 'white',
+                    rotate: 80, // Rotaciona as labels das datas para melhor visualização
+                    interval: 0,  // Exibe todas as datas
+                    color: 'white'
                 }
             },
             yAxis: {

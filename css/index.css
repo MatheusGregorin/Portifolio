@@ -1,5 +1,7 @@
-html {
-    width: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Animação de cima para baixo */
@@ -115,11 +117,11 @@ html {
         0% {
             transform: translateX(0);
         }
-    
+
         30% {
             transform: translateX(0);
         }
-    
+
         31% {
             transform: translateX(-342px);
         }
@@ -135,7 +137,7 @@ html {
         95% {
             transform: translateX(-694px);
         }
-    
+
         100% {
             transform: translateX(0);
         }

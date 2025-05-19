@@ -26,7 +26,7 @@
     <!-- Menu -->
     <header class="fixed top-0 left-0 w-full shadow-md z-50 h-16" :class="bg">
 
-      <nav class="transition-all duration-300 ease-in-out ml-6" :class="bg">
+      <nav class="transition-all duration-300 ease-in-out px-4 sm:ml-6" :class="bg">
         <div class="flex items-center justify-between h-16 pl-2" :class="bg">
           <!-- Itens da navbar para telas grandes -->
           <div class="hidden sm:flex space-x-6 ml-6">
@@ -57,7 +57,7 @@
         </div>
 
         <!-- Menu dropdown para telas pequenas -->
-        <div v-if="isMenuOpen" class="sm:hidden shadow-md absolute left-0 right-0 top-16 border-b-2" :class="bg">
+        <div v-if="isMenuOpen" class="sm:hidden shadow-md absolute left-0 right-0 top-16 w-full border-b-2" :class="bg">
           <div class="text-lg px-6 py-4 border-b-2 border-t-2">
             <a href="index.html" :class="colorText">Início</a>
           </div>
@@ -72,7 +72,7 @@
     </header>
 
     <!-- Seção Apresentação do Portifólio -->
-    <section class="mt-14 w-full h-[60vh] p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+    <section class="mt-14 w-auto h-[60vh] p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
 
       <div class="flex flex-col items-center justify-center h-full">
         <h1 class="text-4xl font-bold text-white">Matheus Gregorin</h1>
@@ -82,7 +82,7 @@
     </section>
 
     <!-- Seção de chamada ao sobre mim -->
-    <section class="flex items-start justify-center h-[25vh] cursor-pointer" :class="bg"
+    <section class="flex items-start justify-center h-[25vh] w-full cursor-pointer" :class="bg"
       @click="goToSection('section-about')">
       <div class="welcome" :class="bg">
         <a class="cursor-pointer" href="#section-about" :class="colorText">Deixe-me apresentar</a>
@@ -98,12 +98,12 @@
 
     <!-- Seção sobre mim -->
     <section id="section-about"
-      class="grid grid-cols-1 pt-10 pb-10 h-auto md:grid-cols-2 place-items-center gap-1 p-2 h-auto lg:h-[80vh]"
+      class="grid grid-cols-1 pt-10 pb-10 h-auto w-full md:grid-cols-2 place-items-center gap-1 h-auto lg:h-[80vh]"
       :class="bg">
 
-      <div class="w-[50vh] h-[60vh] sm:w-[85vh] sm:h-[75vh] flex justify-center items-center pt-2 sm:pt-2">
+      <div class="w-auto h-[60vh] sm:w-auto sm:h-[75vh] flex justify-center items-center pt-2 sm:pt-2">
         <img src="./assets/Profile.jpeg" alt="Imagem de perfil"
-          class="w-[35vh] h-[50vh] sm:w-[65vh] sm:h-[60vh] object-cover">
+          class="w-auto h-[50vh] sm:w-[65vh] sm:h-[60vh] object-cover">
       </div>
 
       <div class="text-left pr-0  lg:text-lg text-left md:pr-12 text-md sm:text-md pt-4 " :class="colorText">
@@ -135,7 +135,7 @@
       </div>
     </section>
 
-    <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
+    <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
       <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Tecnologias de
         conhecimento </h2>
       <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@
 
     <!-- Seção Tec -->
     <section id="section-tec"
-      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[40vh] bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[40vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"> <img class="h-[22vh] w-full rounded-lg"
           src="./assets/php.png" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"

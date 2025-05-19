@@ -103,10 +103,10 @@
 
       <div class="w-[50vh] h-[60vh] sm:w-[85vh] sm:h-[75vh] flex justify-center items-center pt-2 sm:pt-2">
         <img src="./assets/Profile.jpeg" alt="Imagem de perfil"
-          class="w-[35vh] h-[50vh] sm:w-[70vh] sm:h-[60vh] object-cover">
+          class="w-[35vh] h-[50vh] sm:w-[65vh] sm:h-[60vh] object-cover">
       </div>
 
-      <div class="text-lg text-left pr-0  md:pr-12 text-md sm:text-md pt-4 lg:text-left" :class="colorText">
+      <div class="text-left pr-0  lg:text-lg text-left md:pr-12 text-md sm:text-md pt-4 " :class="colorText">
         <div class="corrossel">
           <div class="card">
             Me chamo Matheus Gregorin, sou um entusiasta de tecnologia com foco em desenvolvimento de software. Desde
@@ -136,7 +136,7 @@
     </section>
 
     <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> 💻 Tecnologias de
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Tecnologias de
         conhecimento </h2>
       <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 16l-4-4h8z" />
@@ -162,19 +162,23 @@
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/react.jpg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/java.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/spring.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/javascript.jpg" alt="">
+      </div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/mysql.jpeg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/mongodb.jpeg" alt="">
       </div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/sqlite.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/javascript.jpg" alt="">
-      </div>
     </section>
 
     <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> 📊 Estatistícas de
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Estatistícas de
         Projetos </h2>
       <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 16l-4-4h8z" />
@@ -189,40 +193,46 @@
       <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4 w-full h-auto">
 
         <div id="container-kpis"
-          class="grid grid-cols-1 h-auto width-full bg-gray-200 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+          class="grid grid-cols-1 h-auto width-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
           <div id="qtdLanguages" :class="bg"
             class="grid grid-cols-1 h-[15vh] bg-blue-400 m-2 rounded justify-center items-center">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de Linguagens:
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Linguagens de domínio:
             </p>
             <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
-          <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de estrelas: </p>
-            <p id="qtdStarValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
+          <div id="qtdMerchants" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de empresas
+              trabalhadas: </p>
+            <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 2 </p>
+          </div>
+          <div id="qtdProjects" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de projetos: </p>
+            <p id="qtdProjectsValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de estrelas: </p>
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de estrelas em
+              repositórios: </p>
             <p id="qtdStarValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
         </div>
 
         <!-- Dash Pie -->
         <div id="container-pie"
-          class="flex flex-col items-center lg:h-auto justify-center w-full bg-gray-200 mb-6 rounded-lg p-8">
+          class="flex flex-col items-center lg:h-auto justify-center w-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-8">
           <div id="pie" class="h-52 w-full">
           </div>
         </div>
 
         <!-- Dash Line -->
         <div id="container-line"
-          class="flex flex-col items-center lg:h-auto justify-center w-full bg-gray-200 mb-6 rounded-lg p-8">
+          class="flex flex-col items-center lg:h-auto justify-center w-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-8">
           <div id="line" class="h-52 w-full">
           </div>
         </div>
 
         <!-- Dash Bar -->
         <div id="container-bar"
-          class="flex flex-col items-center lg:h-auto justify-center w-full bg-gray-200 mb-6 rounded-lg p-8">
+          class="flex flex-col items-center lg:h-auto justify-center w-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-8">
           <div id="bar" class="h-52 w-full">
           </div>
         </div>

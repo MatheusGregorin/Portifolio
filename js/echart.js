@@ -29,14 +29,14 @@ function loadPie() {
                 left: 'center',
                 textStyle: {
                     color: 'white',
-                    fontSize: 20
+                    fontSize: 16,
                 }
             },
             tooltip: {
                 trigger: 'item'
             },
             legend: {
-                show: true,
+                show: false,
                 orient: 'horizontal',
                 bottom: 'bottom',
                 textStyle: {
@@ -47,8 +47,9 @@ function loadPie() {
             series: [{
                 name: 'Linguagem',
                 type: 'pie',
-                radius: '50%',
+                radius: '80%',
                 data: languages,
+                top: 50,
                 label: {
                     color: 'white',
                     textBorderColor: 'transparent',
@@ -93,7 +94,7 @@ function loadLine() {
                 left: 'center',
                 textStyle: {
                     color: 'white',
-                    fontSize: 20
+                    fontSize: 16
                 }
             },
             tooltip: {
@@ -147,7 +148,7 @@ function loadBar() {
                 left: 'center',
                 textStyle: {
                     color: 'white',
-                    fontSize: 20
+                    fontSize: 16
                 }
             },
             tooltip: {

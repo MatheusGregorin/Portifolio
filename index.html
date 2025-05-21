@@ -137,7 +137,7 @@
 
     <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
       <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Tecnologias de
-        conhecimento 💡 </h2>
+        conhecimento </h2>
     </div>
 
 
@@ -172,18 +172,19 @@
     </section>
 
     <div class="flex w-auto h-[3vh] justify-end items-center px-2 py-4" :class="bg">
-      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Role para o lado
-      </h2>
       <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-        transform="rotate(-90)">
+        style="transform: rotate(90deg);">
         <path d="M12 16l-4-4h8z" />
         <path d="M12 20l-4-4h8z" />
       </svg>
+
+      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
+      </h2>
     </div>
 
     <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
       <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Estatistícas do
-        Desenvolvedor 📊 </h2>
+        Desenvolvedor </h2>
     </div>
 
     <!-- Seção Dash -->
@@ -196,12 +197,12 @@
           class="grid grid-cols-1 h-auto width-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
           <div id="qtdLanguages" :class="bg"
             class="grid grid-cols-1 h-[15vh] bg-blue-400 m-2 rounded justify-center items-center">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Linguagens de domínio:
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Linguagens de Domínio:
             </p>
             <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdMerchants" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionais: </p>
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionalmente: </p>
             <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 5 </p>
           </div>
           <div id="qtdProjects" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
@@ -209,8 +210,8 @@
             <p id="qtdProjectsValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de estrelas em
-              repositórios: </p>
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Estrelas em
+              Repositórios Pessoal: </p>
             <p id="qtdStarValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
         </div>
@@ -240,19 +241,9 @@
 
     </section>
 
-    <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
-      @click="goToSection('section-project')">
-      <div class="welcome" :class="bg">
-        <a class="cursor-pointer" href="#section-about" :class="colorText">Manutenção</a>
-        <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
-          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 16l-4-4h8z" />
-          <path d="M12 20l-4-4h8z" />
-        </svg>
-
-      </div>
-
-    </section>
+    <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Projetos Pessoais </h2>
+    </div>
 
   </div>
 

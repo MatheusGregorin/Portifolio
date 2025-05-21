@@ -36,16 +36,18 @@ function loadPie() {
                 trigger: 'item'
             },
             legend: {
+                show: true,
                 orient: 'horizontal',
                 bottom: 'bottom',
                 textStyle: {
-                    color: 'white'
+                    color: 'white',
+                    fontSize: 10
                 }
             },
             series: [{
                 name: 'Linguagem',
                 type: 'pie',
-                radius: '40%',
+                radius: '50%',
                 data: languages,
                 label: {
                     color: 'white',

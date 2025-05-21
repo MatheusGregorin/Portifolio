@@ -115,8 +115,8 @@
 
 .move {
     position: relative;
-    animation: moveRight 2s ease-in-out infinite;
-    transition: 0.3s ease-in-out;
+    animation: moveRight 3s ease-in-out infinite;
+    transition: 1s ease-in-out;
 }
 
 @media (max-width: 640px) {

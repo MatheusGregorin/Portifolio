@@ -137,53 +137,53 @@
 
     <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
       <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Tecnologias de
-        conhecimento </h2>
-      <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 16l-4-4h8z" />
-        <path d="M12 20l-4-4h8z" />
-      </svg>
+        conhecimento 💡 </h2>
     </div>
+
 
     <!-- Seção Tec -->
     <section id="section-tec"
-      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[40vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[40vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black"
+      style="box-shadow: inset -10px 0 10px -10px rgb(255, 255, 255);">
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"> <img class="h-[22vh] w-full rounded-lg"
           src="./assets/php.png" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/laravel.png" alt="">
-      </div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/vueJs.jpg" alt="">
-      </div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/nodejs.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/python.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/react.jpg" alt=""></div>
+          src="./assets/laravel.png" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/java.jpg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/spring.jpg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/javascript.jpg" alt="">
-      </div>
+          src="./assets/nodejs.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/python.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/vueJs.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/react.jpg" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
+          src="./assets/javascript.jpg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/mysql.jpeg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/mongodb.jpeg" alt="">
-      </div>
+          src="./assets/mongodb.jpeg" alt=""></div>
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
           src="./assets/sqlite.jpg" alt=""></div>
     </section>
 
-    <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Estatistícas de
-        Projetos </h2>
-      <svg class="w-full" width="56" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <div class="flex w-auto h-[3vh] justify-end items-center px-2 py-4" :class="bg">
+      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Role para o lado
+      </h2>
+      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+        transform="rotate(-90)">
         <path d="M12 16l-4-4h8z" />
         <path d="M12 20l-4-4h8z" />
       </svg>
+    </div>
+
+    <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Estatistícas do
+        Desenvolvedor 📊 </h2>
     </div>
 
     <!-- Seção Dash -->
@@ -201,12 +201,11 @@
             <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdMerchants" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de empresas
-              trabalhadas: </p>
-            <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 2 </p>
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionais: </p>
+            <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 5 </p>
           </div>
           <div id="qtdProjects" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Quantidade de projetos: </p>
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Pessoais: </p>
             <p id="qtdProjectsValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
@@ -244,30 +243,13 @@
     <section class="flex items-start justify-center h-[35vh] cursor-pointer" :class="bg"
       @click="goToSection('section-project')">
       <div class="welcome" :class="bg">
-        <a class="cursor-pointer" href="#section-about" :class="colorText">Meus Projetos</a>
+        <a class="cursor-pointer" href="#section-about" :class="colorText">Manutenção</a>
         <svg class="cursor-pointer" href="#section-1" width="56" height="56" fill="#acacac"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 16l-4-4h8z" />
           <path d="M12 20l-4-4h8z" />
         </svg>
 
-      </div>
-
-    </section>
-
-    <!-- Seção 2 -->
-    <section id="section-project" class="grid w-full h-[250vh] pt-10 pb-10 px-12 gap-5 grid-cols-1" :class="bg">
-
-      <div>
-        Menu de escolha de projetos
-      </div>
-
-      <div>
-        Informaçẽoẽs sobre o projeto
-      </div>
-
-      <div>
-        Imagens do projeto
       </div>
 
     </section>

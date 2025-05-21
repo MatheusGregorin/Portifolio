@@ -249,16 +249,26 @@
 
     <!-- Seção Projetos Pessoais -->
     <section id="projects"
-      class="grid grid-cols-1 h-auto w-full p-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
-      <div id="list" class="grid h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      class="grid grid-cols-1 min-h-[160vh] h-auto w-full p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      <div id="list"
+        class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-        <div v-for="({name, created_at}, index) in projects" :key="index"
-          class="flex h-[40vh] w-full justify-center items-center bg-gray-400" :class="getRandomColorClass()">
+        <div v-show="showProject" class="absolute w-full h-auto top-2 bg-blue-200 p-4" @click="toggleProject(0)">
+          <div>{{ projectShow.name }}</div>
+        </div>
+
+        <div v-for="({name, created_at}, index) in projects" :key="index" @click="toggleProject(index)"
+          v-if="!showProject" class="flex h-[40vh] w-full justify-center items-center rounded" :class="getRandomColorClass()">
           {{ index + " - " + name + " - " + created_at }}
         </div>
 
       </div>
     </section>
+
+    <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Rodapé
+      </h2>
+    </div>
 
   </div>
 
@@ -275,7 +285,9 @@
             bg: 'bg-gray-100 text-gray-600',
             colorText: 'text-gray-600',
             mode: 'Modo Dark',
+            showProject: false,
             projects: [],
+            projectShow: [],
             colors: [
               'bg-gray-100',
               'bg-gray-200',
@@ -306,6 +318,10 @@
               this.mode = 'Modo Light';
             }
           },
+          toggleProject(index) {
+            this.showProject = !this.showProject; // Alterna entre aberto e fechado
+            this.projectShow = this.projects[index];
+          },
           goToSection(section) {
             const element = document.getElementById(section);
             if (element) {
@@ -314,8 +330,6 @@
           },
           getRandomColorClass() {
             const randomIndex = Math.floor(Math.random() * this.colors.length);
-            console.log(randomIndex);
-            console.log(this.colors[randomIndex]);
             return this.colors[randomIndex];
           },
           async fetchRepositories() {
@@ -325,7 +339,6 @@
           async getProjects() {
             fetchRepositories().then(repositories => {
               this.projects = repositories.map(repo => repo);
-              console.log(this.projects);
             });
           }
         },

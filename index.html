@@ -202,7 +202,8 @@
             <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdMerchants" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionalmente: </p>
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionalmente:
+            </p>
             <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 5 </p>
           </div>
           <div id="qtdProjects" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
@@ -242,8 +243,22 @@
     </section>
 
     <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Projetos Pessoais </h2>
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Projetos Pessoais
+      </h2>
     </div>
+
+    <!-- Seção Projetos Pessoais -->
+    <section id="projects"
+      class="grid grid-cols-1 h-auto w-full p-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      <div id="list" class="grid h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+        <div v-for="({name, created_at}, index) in projects" :key="index"
+          class="flex h-[40vh] w-full justify-center items-center bg-gray-400" :class="getRandomColorClass()">
+          {{ index + " - " + name + " - " + created_at }}
+        </div>
+
+      </div>
+    </section>
 
   </div>
 
@@ -260,6 +275,18 @@
             bg: 'bg-gray-100 text-gray-600',
             colorText: 'text-gray-600',
             mode: 'Modo Dark',
+            projects: [],
+            colors: [
+              'bg-gray-100',
+              'bg-gray-200',
+              'bg-gray-400',
+              'bg-gray-600',
+              'bg-gray-800',
+              'bg-gray-900',
+              'bg-blue-100',
+              'bg-blue-200',
+              'bg-blue-400'
+            ]
           }
         },
         methods: {
@@ -284,8 +311,27 @@
             if (element) {
               element.scrollIntoView({ behavior: 'smooth' });
             }
+          },
+          getRandomColorClass() {
+            const randomIndex = Math.floor(Math.random() * this.colors.length);
+            console.log(randomIndex);
+            console.log(this.colors[randomIndex]);
+            return this.colors[randomIndex];
+          },
+          async fetchRepositories() {
+            const resquest = await fetch('https://api.github.com/users/matheus-gregorin/repos');
+            return await resquest.json();
+          },
+          async getProjects() {
+            fetchRepositories().then(repositories => {
+              this.projects = repositories.map(repo => repo);
+              console.log(this.projects);
+            });
           }
         },
+        mounted() {
+          this.getProjects();
+        }
       }
     ).mount('#app');
   </script>

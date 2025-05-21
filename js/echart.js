@@ -140,8 +140,6 @@ function loadBar() {
         const names = repositories.map(repo => repo.name);
         stars = repositories.map(repo => repo.stargazers_count);
 
-        console.log(stars, names);
-
         bar.setOption({
             title: {
                 text: 'Estrelas por Repositório',

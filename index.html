@@ -171,15 +171,24 @@
           src="./assets/sqlite.jpg" alt=""></div>
     </section>
 
-    <div class="flex w-auto h-[3vh] justify-end items-center px-2 py-4" :class="bg">
-      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-        style="transform: rotate(90deg);">
+    <div class="flex w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:hidden md:hidden sm:flex" :class="bg">
+      <svg class="move" width="36" height="56" fill="#acacac"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: rotate(90deg);">
         <path d="M12 16l-4-4h8z" />
         <path d="M12 20l-4-4h8z" />
       </svg>
-
       <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
       </h2>
+    </div>
+
+    <div class="hidden w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:flex md:flex sm:hidden" :class="bg">
+      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
+      </h2>
+      <svg class="move" width="36" height="56" fill="#acacac"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: rotate(-90deg);">
+        <path d="M12 16l-4-4h8z" />
+        <path d="M12 20l-4-4h8z" />
+      </svg>
     </div>
 
     <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
@@ -202,7 +211,7 @@
             <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
           </div>
           <div id="qtdMerchants" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionalmente:
+            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionais:
             </p>
             <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 5 </p>
           </div>
@@ -258,7 +267,8 @@
         </div>
 
         <div v-for="({name, created_at}, index) in projects" :key="index" @click="toggleProject(index)"
-          v-if="!showProject" class="flex h-[40vh] w-full justify-center items-center rounded" :class="getRandomColorClass()">
+          v-if="!showProject" class="flex h-[40vh] w-full justify-center items-center rounded"
+          :class="getRandomColorClass()">
           {{ index + " - " + name + " - " + created_at }}
         </div>
 

@@ -90,25 +90,11 @@
     background-color: rgba(139, 139, 139, 0.192);
 }
 
-.corrossel {
-    height: 50vh;
-    width: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    overflow-x: hidden;
-    position: relative;
-    padding-top: 5px;
-    padding-left: 10px;
-    border-left: 5px solid rgba(119, 119, 119, 0.384);
-}
-
 .card {
     height: 40vh;
     min-width: 100%;
-    animation: slide 50s ease-in-out infinite;
+    /* animation: slide 50s ease-in-out infinite; */
     margin-top: 5px;
-    margin-right: 5px;
     margin-bottom: 5px;
     margin-left: 10px;
 }

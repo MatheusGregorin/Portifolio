@@ -97,40 +97,23 @@
     </section>
 
     <!-- Seção sobre mim -->
-    <section id="section-about"
-      class="grid grid-cols-1 pt-10 pb-10 h-auto w-full md:grid-cols-2 place-items-center gap-1 h-auto lg:h-[80vh]"
+    <section id="section-about" class="grid w-full h-auto pt-16 pb-10 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1"
       :class="bg">
 
-      <div class="w-auto h-[60vh] sm:w-auto sm:h-[75vh] flex justify-center items-center pt-2 sm:pt-2">
-        <img src="./assets/Profile.jpeg" alt="Imagem de perfil"
-          class="w-auto h-[50vh] sm:w-[65vh] sm:h-[60vh] object-cover">
+      <div class="flex w-full h-auto p-6 items-center lg:justify-end md:justify-center sm:justify-center">
+        <img src="./assets/Profile.jpeg" alt="Imagem de perfil" class="w-full h-[60vh] object-cover bg-fixed">
       </div>
 
-      <div class="text-left pr-0  lg:text-lg text-left md:pr-12 text-md sm:text-md pt-4 " :class="colorText">
-        <div class="corrossel">
-          <div class="card">
-            Me chamo Matheus Gregorin, sou um entusiasta de tecnologia com foco em desenvolvimento de software. Desde
-            2022, atuo profissionalmente como desenvolvedor back-end, sempre buscando evoluir minhas habilidades e
-            ampliar meu conhecimento na área. Tenho formação em Análise e Desenvolvimento de Sistemas pela SPTech
-            School, onde construí uma base sólida em lógica, arquitetura de sistemas e boas práticas de desenvolvimento.
-            Sou movido por desafios e motivado a aprender constantemente, o que me ajuda a me adaptar rapidamente a
-            diferentes projetos e equipes.
-          </div>
-          <div class="card">
-            Minhas principais competências técnicas estão voltadas ao desenvolvimento back-end, com domínio em PHP,
-            Laravel, Node.js e Python. Também tenho experiência com bancos de dados relacionais e não relacionais, como
-            MySQL, MongoDB e SQLite, garantindo integração e performance em diferentes aplicações. No front-end, utilizo
-            JavaScript, Vue.js e Tailwind CSS para criar interfaces responsivas e modernas. Além disso, tenho
-            familiaridade com versionamento de código (Git), integração com APIs, consumo de serviços RESTful e noções
-            de segurança e performance em ambientes de produção.
-          </div>
-          <div class="card">
-            Meu foco atual é me consolidar como desenvolvedor fullstack, ampliando ainda mais minha atuação no front-end
-            e em tecnologias modernas como React.js e Next.js, enquanto aprofundo meus conhecimentos em arquitetura de
-            software e testes automatizados. Tenho grande interesse em contribuir com projetos desafiadores, onde posso
-            aplicar boas práticas, colaborar em equipe e crescer tanto tecnicamente quanto profissionalmente. Busco
-            oportunidades que valorizem inovação, aprendizado contínuo e impacto real.
-          </div>
+      <div class="flex justify-center items-center w-full border-l-2 border-gray-300" :class="colorText">
+        <div
+          class="w-full text-center text-md p-4 justify-center md:justify-center text-left sm:justify-center text-left"
+          class="card">
+          Me chamo Matheus Gregorin, sou um entusiasta de tecnologia com foco em desenvolvimento de software. Desde
+          2022, atuo profissionalmente como desenvolvedor back-end, sempre buscando evoluir minhas habilidades e
+          ampliar meu conhecimento na área. Tenho formação em Análise e Desenvolvimento de Sistemas pela SPTech
+          School, onde construí uma base sólida em lógica, arquitetura de sistemas e boas práticas de desenvolvimento.
+          Sou movido por desafios e motivado a aprender constantemente, o que me ajuda a me adaptar rapidamente a
+          diferentes projetos e equipes.
         </div>
       </div>
     </section>
@@ -172,8 +155,8 @@
     </section>
 
     <div class="flex w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:hidden md:hidden sm:flex" :class="bg">
-      <svg class="move" width="36" height="56" fill="#acacac"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: rotate(90deg);">
+      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+        style="transform: rotate(90deg);">
         <path d="M12 16l-4-4h8z" />
         <path d="M12 20l-4-4h8z" />
       </svg>
@@ -182,10 +165,11 @@
     </div>
 
     <div class="hidden w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:flex md:flex sm:hidden" :class="bg">
-      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
+      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Continue para ver
+        mais
       </h2>
-      <svg class="move" width="36" height="56" fill="#acacac"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: rotate(-90deg);">
+      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+        style="transform: rotate(-90deg);">
         <path d="M12 16l-4-4h8z" />
         <path d="M12 20l-4-4h8z" />
       </svg>
@@ -251,31 +235,69 @@
 
     </section>
 
-    <div class="hidden flex-col w-full h-auto justify-center items-center py-10" :class="bg">
+    <div id="projects-intro" class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
       <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Projetos Pessoais
       </h2>
     </div>
 
     <!-- Seção Projetos Pessoais -->
     <section id="projects"
-      class=" hidden grid grid-cols-1 min-h-[160vh] h-auto w-full p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class=" flex grid grid-cols-1 min-h-[160vh] h-auto w-full p-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
       <div id="list"
         class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-        <div v-show="showProject" class="absolute w-full h-auto top-2 bg-blue-200 p-4" @click="toggleProject(0)">
-          <div>{{ projectShow.name }}</div>
+        <div v-show="showProject" class="absolute w-full h-auto top-2 p-12 rounded-lg" :class="bg">
+          <div class="flex w-full h-auto justify-end cursor-pointer pt-4 pl-4 pb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" @click="toggleProject(0)">
+              <circle cx="12" cy="12" r="10" fill="#c26d6d" />
+              <path
+                d="M15.536 8.464a1 1 0 0 1 1.414 1.414L13.414 12l3.536 3.536a1 1 0 0 1-1.414 1.414L12 13.414l-3.536 3.536a1 1 0 0 1-1.414-1.414L10.586 12 7.05 8.464a1 1 0 1 1 1.414-1.414L12 10.586l3.536-3.536a1 1 0 0 1 1.414 0z"
+                fill="white" />
+            </svg>
+          </div>
+          <div class="border-gray-200" :class="colorText"><img src="/assets/cod.jpg" alt="Imagem de perfil do código"
+              class="w-full h-[10vh] object-cover bg-fixed"></div>
+          <div class="pt-6 text-2xl bold" :class="colorText">Nome: {{ projectShow.name }}</div>
+          <div class="pt-4" :class="colorText">Data de criação: {{ new
+            Date(projectShow.created_at).toLocaleString('pt-BR', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false // Para usar formato 24h
+            }) }}</div>
+          <div class="pt-4" :class="colorText">Projeto: {{ projectShow.private ? "Privado" : "Público" }} </div>
+          <div class="pt-4" :class="colorText">Linguagem: {{ projectShow.language ? projectShow.language : "Outros"}}
+          </div>
+          <div class="pt-4" :class="colorText"> Quantidade de commits: {{ qtdCommits }} </div>
+          <div class="pt-4" :class="colorText">Descrição:
+            <div class="flex h-auto w-auto border border-gray-200 p-4 mt-4 text-left">
+              {{ projectShow.description ? projectShow.description : "Sem Descrição"}}
+            </div>
+          </div>
+          <div class="pt-4" :class="colorText">Nota do Dev:
+            <div class="flex h-auto w-auto border border-gray-200 p-4 mt-4 text-left">
+              Sem nota
+            </div>
+          </div>
+          <div class="pt-4 underline text-blue-500 cursor-pointer" @click="dispatchUrl()">Clique aqui para acessar...</p>
+          </div>
         </div>
 
         <div v-for="({name, created_at}, index) in projects" :key="index" @click="toggleProject(index)"
-          v-if="!showProject" class="flex h-[40vh] w-full justify-center items-center rounded"
+          v-if="!showProject"
+          class="flex h-[40vh] w-full justify-center items-center rounded text-white text-2xl cursor-pointer"
           :class="getRandomColorClass()">
-          {{ index + " - " + name + " - " + created_at }}
+          {{ name }}
         </div>
 
       </div>
     </section>
 
-    <div class="hidden flex-col w-full h-auto justify-center items-center py-10" :class="bg">
+    <div class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
       <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Rodapé
       </h2>
     </div>
@@ -298,16 +320,12 @@
             showProject: false,
             projects: [],
             projectShow: [],
+            qtdCommits: 0,
             colors: [
-              'bg-gray-100',
-              'bg-gray-200',
               'bg-gray-400',
-              'bg-gray-600',
-              'bg-gray-800',
-              'bg-gray-900',
-              'bg-blue-100',
-              'bg-blue-200',
-              'bg-blue-400'
+              // 'bg-gradient-to-tr from-blue-200 via-gray-400 to-gray-900',
+              // 'bg-gradient-to-tr from-blue-900 via-blue-600 to-black',
+              // 'bg-gradient-to-tr from-blue-900 via-blue-600 to-black',
             ]
           }
         },
@@ -331,6 +349,8 @@
           toggleProject(index) {
             this.showProject = !this.showProject; // Alterna entre aberto e fechado
             this.projectShow = this.projects[index];
+            this.getCommits(); // Chama a função para obter os commits do projeto selecionado
+            this.goToSection('projects-intro'); // Rola para a seção de projetos
           },
           goToSection(section) {
             const element = document.getElementById(section);
@@ -342,6 +362,14 @@
             const randomIndex = Math.floor(Math.random() * this.colors.length);
             return this.colors[randomIndex];
           },
+          async dispatchUrl() {
+            const url = this.projectShow.html_url;
+            if (url) {
+              window.open(url, '_blank');
+            } else {
+              alert('URL não disponível');
+            }
+          },
           async fetchRepositories() {
             const resquest = await fetch('https://api.github.com/users/matheus-gregorin/repos');
             return await resquest.json();
@@ -350,6 +378,17 @@
             fetchRepositories().then(repositories => {
               this.projects = repositories.map(repo => repo);
             });
+          },
+          async fetchCommits(repo) {
+            const resquest = await fetch(`https://api.github.com/repos/matheus-gregorin/${repo}/commits`);
+            return await resquest.json();
+          },
+          async getCommits() {
+            if (this.projectShow.name) {
+              const commits = await this.fetchCommits(this.projectShow.name);
+              const qtdCommits = commits.length;
+              this.qtdCommits = qtdCommits;
+            }
           }
         },
         mounted() {

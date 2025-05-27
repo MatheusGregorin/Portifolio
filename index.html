@@ -242,12 +242,12 @@
 
     <!-- Seção Projetos Pessoais -->
     <section id="projects"
-      class="flex grid grid-cols-1 min-h-[140vh] h-auto w-full p-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class="flex grid grid-cols-1 min-h-[160vh] h-auto w-full p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
       <div id="list"
         class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-        <div v-show="showProject" class="absolute w-full h-auto max-h-[138vh] top-2 p-12 rounded-lg" :class="bg">
-          <div class="flex w-full h-auto justify-end cursor-pointer pt-4 pl-4 pb-4">
+        <div v-show="showProject" class="absolute w-full h-auto p-6 rounded-lg overflow-y-scroll" :class="bg">
+          <div class="flex w-full h-auto justify-end cursor-pointer pl-4 pb-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true" @click="toggleProject(0)">
               <circle cx="12" cy="12" r="10" fill="#c26d6d" />
@@ -258,17 +258,17 @@
           </div>
           <hr>
           <div class="pt-6 text-2xl bold" :class="colorText"> {{ projectShow.name }}</div>
-          <div class="pt-4" :class="colorText">Data de criação: {{ new
-            Date(projectShow.created_at).toLocaleString('pt-BR', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false // Para usar formato 24h
-            }) }}</div>
-          <div class="grid h-auto w-auto pt-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+          <div class="grid h-auto w-auto p-4 mt-2 mb-2 border border-gray-200 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+            <div class="pt-4" :class="colorText">Data de criação: {{ new
+              Date(projectShow.created_at).toLocaleString('pt-BR', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: false // Para usar formato 24h
+              }) }}</div>
             <div class="pt-4" :class="colorText">Última atualização: {{ new
               Date(projectShow.pushed_at).toLocaleString('pt-BR', {
               year: 'numeric',
@@ -285,7 +285,7 @@
             <div class="pt-4" :class="colorText"> Quantidade de commits: {{ qtdCommits }} </div>
           </div>
           <div class="pt-4" :class="colorText">Descrição:
-            <div class="flex h-[20vh] w-auto border border-gray-200 p-4 mt-4 text-left overflow-y-scroll">
+            <div class="flex h-[30vh] w-auto border border-gray-200 p-4 mt-4 text-left overflow-y-scroll">
               {{ projectShow.description ? projectShow.description : "Sem Descrição"}} Lorem ipsum dolor sit amet
               consectetur adipisicing elit. Aut corporis quod quibusdam, qui quia numquam quis esse sint alias impedit
               tempore eaque praesentium temporibus consectetur asperiores, iste voluptate hic ducimus. Lorem ipsum

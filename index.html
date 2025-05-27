@@ -126,7 +126,7 @@
 
     <!-- Seção Tec -->
     <section id="section-tec"
-      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[40vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black"
+      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[45vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black"
       style="box-shadow: inset -10px 0 10px -10px rgb(255, 255, 255);">
       <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"> <img class="h-[22vh] w-full rounded-lg"
           src="./assets/php.png" alt=""></div>
@@ -242,7 +242,7 @@
 
     <!-- Seção Projetos Pessoais -->
     <section id="projects"
-      class=" flex grid grid-cols-1 min-h-[160vh] h-auto w-full p-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class="flex grid grid-cols-1 min-h-[140vh] h-auto w-full p-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
       <div id="list"
         class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
@@ -256,11 +256,20 @@
                 fill="white" />
             </svg>
           </div>
-          <div class="border-gray-200" :class="colorText"><img src="/assets/cod.jpg" alt="Imagem de perfil do código"
-              class="w-full h-[10vh] object-cover bg-fixed"></div>
-          <div class="pt-6 text-2xl bold" :class="colorText">Nome: {{ projectShow.name }}</div>
+          <hr>
+          <div class="pt-6 text-2xl bold" :class="colorText"> {{ projectShow.name }} </div>
           <div class="pt-4" :class="colorText">Data de criação: {{ new
             Date(projectShow.created_at).toLocaleString('pt-BR', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false // Para usar formato 24h
+            }) }}</div>
+          <div class="pt-4" :class="colorText">Última atualização: {{ new
+            Date(projectShow.pushed_at).toLocaleString('pt-BR', {
             year: 'numeric',
             month: '2-digit',
             day: '2-digit',
@@ -278,19 +287,15 @@
               {{ projectShow.description ? projectShow.description : "Sem Descrição"}}
             </div>
           </div>
-          <div class="pt-4" :class="colorText">Nota do Dev:
-            <div class="flex h-auto w-auto border border-gray-200 p-4 mt-4 text-left">
-              Sem nota
-            </div>
+          <div class="pt-4 underline text-blue-500 cursor-pointer" @click="dispatchUrl()">Clique aqui para acessar...
           </div>
-          <div class="pt-4 underline text-blue-500 cursor-pointer" @click="dispatchUrl()">Clique aqui para acessar...</p>
-          </div>
+          <hr class="mt-6">
         </div>
 
         <div v-for="({name, created_at}, index) in projects" :key="index" @click="toggleProject(index)"
           v-if="!showProject"
-          class="flex h-[40vh] w-full justify-center items-center rounded text-white text-2xl cursor-pointer"
-          :class="getRandomColorClass()">
+          class="flex h-[40vh] w-full justify-start items-center rounded text-white text-2xl cursor-pointer backdrop-blur-md bg-white/10 border border-white/30">
+          <div class="h-[15vh] w-[2vh] mx-4" :class="getRandomColorClass()"></div>
           {{ name }}
         </div>
 
@@ -323,10 +328,16 @@
             qtdCommits: 0,
             colors: [
               'bg-gray-400',
-              // 'bg-gradient-to-tr from-blue-200 via-gray-400 to-gray-900',
-              // 'bg-gradient-to-tr from-blue-900 via-blue-600 to-black',
-              // 'bg-gradient-to-tr from-blue-900 via-blue-600 to-black',
-            ]
+              'bg-blue-400',
+              'bg-green-400',
+              'bg-red-400',
+              'bg-yellow-400',
+              'bg-purple-400',
+              'bg-pink-400',
+              'bg-indigo-400',
+              'bg-teal-400',
+              'bg-orange-400',
+            ],
           }
         },
         methods: {

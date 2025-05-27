@@ -242,13 +242,13 @@
 
     <!-- Seção Projetos Pessoais -->
     <section id="projects"
-      class="flex grid grid-cols-1 min-h-[160vh] h-auto w-full p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class="flex grid grid-cols-1 min-h-[128vh] h-auto w-full p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
       <div id="list"
-        class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        class="grid relative min-h-[125vh] h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-        <div v-show="showProject" class="absolute w-full h-auto p-6 rounded-lg overflow-y-scroll" :class="bg">
+        <div v-show="showProject" class="absolute w-full h-auto p-6 rounded-lg border border-gray-400" :class="bg">
           <div class="flex w-full h-auto justify-end cursor-pointer pl-4 pb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true" @click="toggleProject(0)">
               <circle cx="12" cy="12" r="10" fill="#c26d6d" />
               <path
@@ -286,25 +286,11 @@
           </div>
           <div class="pt-4" :class="colorText">Descrição:
             <div class="flex h-[30vh] w-auto border border-gray-200 p-4 mt-4 text-left overflow-y-scroll">
-              {{ projectShow.description ? projectShow.description : "Sem Descrição"}} Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Aut corporis quod quibusdam, qui quia numquam quis esse sint alias impedit
-              tempore eaque praesentium temporibus consectetur asperiores, iste voluptate hic ducimus. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Ipsum aliquid amet laborum praesentium, placeat vel debitis
-              dignissimos minus! Tempora aspernatur harum distinctio soluta voluptatibus? Esse voluptas assumenda
-              perferendis quas minima? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui dicta cum
-              similique culpa eos officiis, eius facilis, harum aliquam iusto veritatis vitae iure hic odit esse aut
-              maxime eveniet officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, blanditiis!
-              Cupiditate sed animi odio. Suscipit neque iure beatae vel earum cumque perferendis quis dolorem, at
-              eaque voluptatem quisquam est laboriosam. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Necessitatibus, vitae magnam deserunt incidunt repellat exercitationem veniam amet maxime aliquam quia
-              nobis suscipit facilis minus debitis pariatur blanditiis dolor eligendi voluptatibus?Lorem ipsum dolor,
-              sit amet consectetur adipisicing elit. Dolore laboriosam ut saepe quis fugit dolorum facilis doloribus,
-              animi, autem recusandae omnis modi facere molestias officiis. Iure aspernatur quaerat nihil at.
+              {{ projectShow.description ? projectShow.description : "Sem Descrição"}}
             </div>
           </div>
           <div class="pt-4 underline text-blue-500 cursor-pointer" @click="dispatchUrl()">Clique aqui para acessar...
           </div>
-          <hr class="mt-6">
         </div>
 
         <div v-for="({name, created_at}, index) in projects" :key="index" @click="toggleProject(index)"

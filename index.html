@@ -307,8 +307,54 @@
       </div>
     </section>
 
+    <div id="projects-intro" class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Conceitos &
+        Arquiteturas </h2>
+      </h2>
+    </div>
+
+    <section id="section-concepts"
+      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[45vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black"
+      style="box-shadow: inset -10px 0 10px -10px rgb(255, 255, 255);">
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/Clean.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/DDD.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/TDD.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/Arch.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/SOLID.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/Repo.png" alt=""></div>
+      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
+          src="./assets/Dep.png" alt=""></div>
+    </section>
+
+    <div class="flex w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:hidden md:hidden sm:flex" :class="bg">
+      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+        style="transform: rotate(90deg);">
+        <path d="M12 16l-4-4h8z" />
+        <path d="M12 20l-4-4h8z" />
+      </svg>
+      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
+      </h2>
+    </div>
+
+    <div class="hidden w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:flex md:flex sm:hidden" :class="bg">
+      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Continue para ver
+        mais
+      </h2>
+      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+        style="transform: rotate(-90deg);">
+        <path d="M12 16l-4-4h8z" />
+        <path d="M12 20l-4-4h8z" />
+      </svg>
+    </div>
+
     <div class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Rodapé
+      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> &
       </h2>
     </div>
 

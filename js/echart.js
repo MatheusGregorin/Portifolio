@@ -25,7 +25,7 @@ function loadPie() {
 
         pie.setOption({
             title: {
-                text: 'Linguagens mais usadas',
+                text: 'Linguagens em Projetos',
                 left: 'center',
                 textStyle: {
                     color: 'white',
@@ -90,7 +90,7 @@ function loadLine() {
 
         line.setOption({
             title: {
-                text: 'Projetos por periodo',
+                text: 'Projetos por Período',
                 left: 'center',
                 textStyle: {
                     color: 'white',
@@ -107,6 +107,11 @@ function loadLine() {
                     rotate: 80, // Rotaciona as labels das datas para melhor visualização
                     interval: 0,  // Exibe todas as datas
                     color: 'white'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'white'
+                    }
                 }
             },
             yAxis: {
@@ -159,6 +164,11 @@ function loadBar() {
                     rotate: 80, // Rotaciona as labels das datas para melhor visualização
                     interval: 0,  // Exibe todas as datas
                     color: 'white'
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'white'
+                    }
                 }
             },
             yAxis: {

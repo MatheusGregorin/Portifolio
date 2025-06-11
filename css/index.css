@@ -105,6 +105,110 @@
     transition: 1s ease-in-out;
 }
 
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#my-apresentation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#my-apresentation.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#projects {
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 2.5s ease-out, transform 0.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#projects.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#photo {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#photo.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#section-dash {
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 2.5s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#section-dash.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#container-kpis {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#container-kpis.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#container-pie {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#container-pie.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#container-bar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#container-bar.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos iniciais da div (invisível e levemente deslocada) */
+#container-line {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
+}
+
+/* Classe que será adicionada para ativar a animação */
+#container-line.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (max-width: 640px) {
     .welcome {
         font-size: 1.10rem;

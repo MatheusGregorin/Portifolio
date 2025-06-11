@@ -19,34 +19,6 @@
   <link rel="stylesheet" href="./css/index.css">
 </head>
 
-<style>
-  /* Estilos iniciais da div (invisível e levemente deslocada) */
-  #my-apresentation {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
-  }
-
-  /* Classe que será adicionada para ativar a animação */
-  #my-apresentation.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Estilos iniciais da div (invisível e levemente deslocada) */
-  #projects {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
-  }
-
-  /* Classe que será adicionada para ativar a animação */
-  #projects.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
 <body>
 
   <!-- APP -->
@@ -129,7 +101,7 @@
     <section id="section-about" class="grid w-full h-auto pt-16 pb-10 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1"
       :class="bg">
 
-      <div class="flex w-full h-auto p-6 items-center lg:justify-end md:justify-center sm:justify-center">
+      <div id="photo" class="flex w-full h-auto p-6 items-center lg:justify-end md:justify-center sm:justify-center">
         <img src="./assets/Profile.jpeg" alt="Imagem de perfil" class="w-full h-[60vh] object-cover bg-fixed">
       </div>
 
@@ -275,12 +247,12 @@
 
     <!-- Seção Projetos Pessoais -->
     <section id="projects"
-      class="flex grid grid-cols-1 min-h-screen h-auto w-full pt-10 pb-6 px-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
+      class="flex grid grid-cols-1 overflow-y-scroll w-full pt-10 pb-6 px-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black lg:h-[110vh] sm:min-h-screen h-[90vh]">
       <div id="list"
-        class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
 
         <div v-show="showProject"
-          class="absolute w-full p-4 rounded-lg border border-gray-400  lg:h-[90vh] sm:absolute h-[82vh]" :class="bg">
+          class="absolute w-full rounded-lg border border-gray-400 lg:h-[95vh] p-6  sm:absolute h-auto p-4" :class="bg">
           <div class="flex items-center space-x-4 w-full">
             <hr class="w-full">
             <svg class="cursor-pointer" width="18" height="18" @click="toggleProject(0, false)"
@@ -536,7 +508,16 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Liste os IDs dos elementos que você quer animar
-      const animatedElementIds = ['my-apresentation', 'projects'];
+      const animatedElementIds = [
+        'my-apresentation',
+        'projects',
+        'photo',
+        'section-dash',
+        'container-kpis',
+        'container-line',
+        'container-bar',
+        'container-pie'
+      ];
 
       // 2. Converta os IDs em referências aos elementos DOM
       const animatedElements = animatedElementIds.map(id => document.getElementById(id));

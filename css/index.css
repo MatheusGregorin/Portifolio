@@ -4,33 +4,17 @@
     box-sizing: border-box;
 }
 
-@keyframes slide {
-    0% {
-        transform: translateX(0);
+@keyframes moveLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+        /* Posição inicial */
     }
 
-    30% {
-        transform: translateX(0);
-    }
-
-    31% {
-        transform: translateX(-620px);
-    }
-
-    60% {
-        transform: translateX(-620px);
-    }
-
-    61% {
-        transform: translateX(-1232px);
-    }
-
-    95% {
-        transform: translateX(-1232px);
-    }
-
-    100% {
-        transform: translateX(0);
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Posição final */
     }
 }
 
@@ -103,6 +87,11 @@
     position: relative;
     animation: moveRight 1.5s ease-in-out infinite;
     transition: 1s ease-in-out;
+}
+
+#init {
+    opacity: 1;
+    animation: moveLeft 2.0s ease-in-out;
 }
 
 /* Estilos iniciais da div (invisível e levemente deslocada) */

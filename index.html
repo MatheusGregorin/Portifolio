@@ -19,10 +19,38 @@
   <link rel="stylesheet" href="./css/index.css">
 </head>
 
+<style>
+  /* Estilos iniciais da div (invisível e levemente deslocada) */
+  #my-apresentation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+  }
+
+  /* Classe que será adicionada para ativar a animação */
+  #my-apresentation.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Estilos iniciais da div (invisível e levemente deslocada) */
+  #projects {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+  }
+
+  /* Classe que será adicionada para ativar a animação */
+  #projects.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 <body>
 
   <!-- APP -->
-  <div id="app" class="w-full min-h-screen">
+  <div id="app" class="w-full min-h-screen" :class="bg">
 
     <!-- Menu -->
     <header class="fixed top-0 left-0 w-full shadow-md z-50 h-16" :class="bg">
@@ -105,7 +133,8 @@
         <img src="./assets/Profile.jpeg" alt="Imagem de perfil" class="w-full h-[60vh] object-cover bg-fixed">
       </div>
 
-      <div class="flex justify-center items-center w-full border-l-2 border-gray-300" :class="colorText">
+      <div id="my-apresentation" class="flex justify-center items-center w-full border-l-2 border-gray-300"
+        :class="colorText">
         <div
           class="w-full text-center text-md p-4 justify-center md:justify-center text-left sm:justify-center text-left"
           class="card">
@@ -259,7 +288,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </div>
-          <div class="pt-6 text-4xl bold pb-2" :class="colorText"> {{ projectShow.name }}</div>
+          <div class="pt-6 text-4xl bold pb-2 overflow-x-hidden" :class="colorText"> {{ projectShow.name }}</div>
           <div
             class="grid h-auto w-auto px-4 pb-4 mb-2 border border-gray-200 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
             <div class="pt-4" :class="colorText">Projeto: {{ projectShow.private ? "Privado" : "Público" }} </div>
@@ -393,7 +422,7 @@
       </div>
     </div>
 
-    <section id="section-concepts"
+    <section id="section-bottom"
       class="flex pl-4 pr-4 items-center h-[20vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
     </section>
 
@@ -503,6 +532,40 @@
       }
     ).mount('#app');
   </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Liste os IDs dos elementos que você quer animar
+      const animatedElementIds = ['my-apresentation', 'projects'];
+
+      // 2. Converta os IDs em referências aos elementos DOM
+      const animatedElements = animatedElementIds.map(id => document.getElementById(id));
+
+      // 3. Adicione o event listener para o scroll
+      window.addEventListener('scroll', () => {
+        // Para cada elemento na nossa lista
+        animatedElements.forEach(element => {
+          // Verifique se o elemento existe (para evitar erros se um ID não for encontrado)
+          if (element) {
+            const rect = element.getBoundingClientRect();
+
+            // Verifica se o elemento está visível na viewport (com uma margem)
+            const isVisible = rect.top < window.innerHeight - 50 && rect.bottom > 50;
+
+            if (isVisible) {
+              // Se visível, adiciona a classe para ativar a animação
+              console.log('Elemento visível:', element.id);
+              element.classList.add('is-visible');
+            } else {
+              // Se NÃO visível, remove a classe para "zerar" a animação
+              element.classList.remove('is-visible');
+            }
+          }
+        });
+      });
+    });
+  </script>
+
 
 </body>
 

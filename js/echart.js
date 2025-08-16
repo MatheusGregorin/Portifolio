@@ -4,7 +4,7 @@ let stars = [];
 let repositoriesCounter = 0;
 
 async function fetchRepositories() {
-    const resquest = await fetch('https://api.github.com/users/matheus-gregorin/repos');
+    const resquest = await fetch('https://api.github.com/users/MatheusGregorin/repos');
     return await resquest.json();
 }
 
@@ -161,7 +161,7 @@ function loadBar() {
                 type: 'category',
                 data: names,
                 axisLabel: {
-                    rotate: 80, // Rotaciona as labels das datas para melhor visualização
+                    rotate: 30, // Rotaciona as labels das datas para melhor visualização
                     interval: 0,  // Exibe todas as datas
                     color: 'white'
                 },

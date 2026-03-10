@@ -1,217 +1,122 @@
-let counter = {};
-let languages = [];
-let stars = [];
-let repositoriesCounter = 0;
+let charts = {};
 
-async function fetchRepositories() {
-    const resquest = await fetch('https://api.github.com/users/MatheusGregorin/repos');
-    return await resquest.json();
-}
+const ChartThemes = {
+    dark: {
+        text: '#f8fafc', // slate-50 for better contrast
+        axis: '#64748b', // slate-500
+        colors: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4']
+    },
+    light: {
+        text: '#0f172a', // slate-900
+        axis: '#94a3b8', // slate-400
+        colors: ['#2563eb', '#059669', '#d97706', '#dc2626', '#7c3aed', '#db2777', '#0891b2']
+    }
+};
 
-// Função 1: PIZZA
-function loadPie() {
-    fetchRepositories().then(repositories => {
-        const pie = echarts.init(document.getElementById('pie'));
-
-        repositories.forEach(repository => {
-            const lang = repository.language || 'Outros';
-            counter[lang] = (counter[lang] || 0) + 1;
-            repositoriesCounter++;
-        });
-
-        Object.entries(counter).forEach(([key, value]) => {
-            languages.push({ 'name': key, 'value': value });
-        });
-
-        pie.setOption({
-            title: {
-                text: 'Linguagens em Projetos',
-                left: 'center',
-                textStyle: {
-                    color: 'white',
-                    fontSize: 16,
-                }
-            },
-            tooltip: {
-                trigger: 'item'
-            },
-            legend: {
-                show: false,
-                orient: 'horizontal',
-                bottom: 'bottom',
-                textStyle: {
-                    color: 'white',
-                    fontSize: 10
-                }
-            },
-            series: [{
-                name: 'Linguagem',
-                type: 'pie',
-                radius: '80%',
-                data: languages,
-                top: 50,
-                label: {
-                    color: 'white',
-                    textBorderColor: 'transparent',
-                    textBorderWidth: 0
-                },
-                itemStyle: {
-                    shadowColor: 'rgba(255, 255, 255, 0.18)',
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowOffsetY: 0
-                },
-                emphasis: {
-                    itemStyle: {
-                        shadowOffsetX: 0
-                    }
-                }
-            }]
-        });
-
-        window.addEventListener('resize', () => pie.resize());
-    });
-}
-
-// Função 2: LINHAS
-function loadLine() {
-    fetchRepositories().then(repositories => {
-        const line = echarts.init(document.getElementById('line'));
-
-        const repositoriesOrdenados = repositories.sort(
-            (a, b) => new Date(a.created_at) - new Date(b.created_at)
-        );
-
-        const datasFormatadas = repositoriesOrdenados.map(repo =>
-            new Date(repo.created_at).toLocaleDateString()
-        );
-
-        const names = repositories.map(repo => repo.name);
-
-        line.setOption({
-            title: {
-                text: 'Projetos por Período',
-                left: 'center',
-                textStyle: {
-                    color: 'white',
-                    fontSize: 16
-                }
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            xAxis: {
-                type: 'category',
-                data: datasFormatadas,
-                axisLabel: {
-                    rotate: 80, // Rotaciona as labels das datas para melhor visualização
-                    interval: 0,  // Exibe todas as datas
-                    color: 'white'
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: 'white'
-                    }
-                }
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: {
-                    color: 'white',
-                }
-            },
-            series: [{
-                data: names.map((name, index) => ({
-                    name: name,
-                    value: index + 1 // A posição do repositório é representada no eixo Y
-                })),
-                type: 'line',
-                smooth: true, // Torna a linha mais suave
-                itemStyle: {
-                    color: 'white'
-                }
-            }]
-        });
-
-        window.addEventListener('resize', () => line.resize());
-    });
-}
-
-// Função 3: BARRAS
-function loadBar() {
-    fetchRepositories().then(repositories => {
-        const bar = echarts.init(document.getElementById('bar'));
-
-        const names = repositories.map(repo => repo.name);
-        stars = repositories.map(repo => repo.stargazers_count);
-
-        bar.setOption({
-            title: {
-                text: 'Estrelas por Repositório',
-                left: 'center',
-                textStyle: {
-                    color: 'white',
-                    fontSize: 16
-                }
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            xAxis: {
-                type: 'category',
-                data: names,
-                axisLabel: {
-                    rotate: 30, // Rotaciona as labels das datas para melhor visualização
-                    interval: 0,  // Exibe todas as datas
-                    color: 'white'
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: 'white'
-                    }
-                }
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: {
-                    color: 'white',
-                }
-            },
-            series: [{
-                data: stars,
-                type: 'bar',
-                itemStyle: {
-                    color: 'white'
-                }
-            }]
-        });
-
-        window.addEventListener('resize', () => bar.resize());
-    });
-}
-
-// Aguardar o carregamento da página e chamar todas as funções
-document.addEventListener('DOMContentLoaded', () => {
-    loadPie();  // Chama a função do gráfico de pizza
-    loadLine(); // Chama a função do gráfico de linha
-    loadBar();  // Chama a função do gráfico de barras
-});
-
-setTimeout(() => {
-    loadKpis();
-}, 1000);
-
-function loadKpis() {
-    const qtd = document.getElementById('qtdLangValue');
-    qtd.innerHTML = `${languages.length}`;
-
-    const star = document.getElementById('qtdStarValue');
-    stars.forEach((value, index) => {
-        if (value > 0) {
-            star.innerHTML++;
+window.PortfolioCharts = {
+    async init(repositories, isDarkMode) {
+        try {
+            this.loadStatistics(repositories);
+            this.renderCharts(repositories, isDarkMode);
+        } catch (error) {
+            console.error('Error initializing charts:', error);
         }
-    })
+    },
 
-    const repo = document.getElementById('qtdProjectsValue');
-    repo.innerHTML = `${repositoriesCounter}`
-}
+    loadStatistics(repositories) {
+        const stats = {
+            languages: new Set(),
+            stars: 0,
+            projects: repositories.length,
+            professional: 5
+        };
+
+        repositories.forEach(repo => {
+            if (repo.language) stats.languages.add(repo.language);
+            stats.stars += repo.stargazers_count;
+        });
+
+        const elements = {
+            'qtdLangValue': stats.languages.size,
+            'qtdStarValue': stats.stars,
+            'qtdProjectsValue': stats.projects,
+            'qtdMerchantsValue': stats.professional
+        };
+
+        Object.entries(elements).forEach(([id, val]) => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = val;
+        });
+    },
+
+    renderCharts(repositories, isDarkMode) {
+        const theme = isDarkMode ? ChartThemes.dark : ChartThemes.light;
+
+        // 1. Languages Pie
+        const langCounter = {};
+        repositories.forEach(repo => {
+            const lang = repo.language || 'Others';
+            langCounter[lang] = (langCounter[lang] || 0) + 1;
+        });
+        const pieData = Object.entries(langCounter).map(([name, value]) => ({ name, value }));
+
+        const pieEl = document.getElementById('pie');
+        if (pieEl) {
+            if (charts.pie) {
+                charts.pie.dispose();
+            }
+            const pie = echarts.init(pieEl);
+            pie.setOption({
+                color: theme.colors,
+                title: { text: 'Languages', left: 'center', textStyle: { color: theme.text, fontFamily: 'Outfit' } },
+                tooltip: { trigger: 'item', padding: 10, backgroundColor: 'rgba(15, 23, 42, 0.9)', textStyle: { color: '#fff' } },
+                series: [{
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: 'transparent', borderWidth: 2 },
+                    label: { show: false },
+                    data: pieData
+                }]
+            });
+            charts.pie = pie;
+        }
+
+        // 2. Projects Timeline
+        const timelineData = [...repositories].sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+        const lineEl = document.getElementById('line');
+        if (lineEl) {
+            if (charts.line) {
+                charts.line.dispose();
+            }
+            const line = echarts.init(lineEl);
+            line.setOption({
+                color: [theme.colors[0]],
+                title: { text: 'Project Timeline', left: 'center', textStyle: { color: theme.text, fontFamily: 'Outfit' } },
+                xAxis: { type: 'category', data: timelineData.map(r => new Date(r.created_at).getFullYear()), axisLabel: { color: theme.text } },
+                yAxis: { type: 'value', axisLabel: { color: theme.text }, splitLine: { lineStyle: { color: theme.axis, opacity: 0.2 } } },
+                series: [{ data: timelineData.map((_, i) => i + 1), type: 'line', smooth: true, areaStyle: { opacity: 0.1 } }]
+            });
+            charts.line = line;
+        }
+
+        // 3. Stars Bar
+        const barEl = document.getElementById('bar');
+        if (barEl) {
+            if (charts.bar) {
+                charts.bar.dispose();
+            }
+            const bar = echarts.init(barEl);
+            bar.setOption({
+                color: [theme.colors[1]],
+                title: { text: 'Stars per Repo', left: 'center', textStyle: { color: theme.text, fontFamily: 'Outfit' } },
+                xAxis: { type: 'category', data: repositories.map(r => r.name.substring(0, 10)), axisLabel: { color: theme.text, rotate: 45 } },
+                yAxis: { type: 'value', axisLabel: { color: theme.text }, splitLine: { lineStyle: { color: theme.axis, opacity: 0.2 } } },
+                series: [{ data: repositories.map(r => r.stargazers_count), type: 'bar', itemStyle: { borderRadius: [5, 5, 0, 0] } }]
+            });
+            charts.bar = bar;
+        }
+
+        window.addEventListener('resize', () => Object.values(charts).forEach(c => c && c.resize()));
+    }
+};

@@ -1,553 +1,338 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matheus Gregorin</title>
+  <title>Matheus Gregorin | Portfolio</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-  <!-- Tailwind via CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Vue via CDN -->
-  <script src="./js/vue.js"></script>
-  <!-- Echart -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
-  <!-- EChart -->
-  <script src="./js/echart.js"></script>
-  <!-- Css -->
-  <link rel="stylesheet" href="./css/index.css">
-</head>
-
-<body>
-
-  <!-- APP -->
-  <div id="app" class="w-full min-h-screen" :class="bg">
-
-    <!-- Menu -->
-    <header class="fixed top-0 left-0 w-full shadow-md z-50 h-16" :class="bg">
-
-      <nav class="transition-all duration-300 ease-in-out px-4 sm:ml-6" :class="bg">
-        <div class="flex items-center justify-between h-16 pl-2" :class="bg">
-          <!-- Itens da navbar para telas grandes -->
-          <div class="hidden sm:flex space-x-6 ml-6">
-            <div class="text-lg">
-              <a href="index.html" :class="colorText">Início</a>
-            </div>
-            <div class="text-lg">
-              <a @click="goToSection('projects-intro')" class="cursor-pointer" :class="colorText">Projetos</a>
-            </div>
-            <div class="text-lg cursor-pointer">
-              <button class="bg-gray-400 rounded-lg px-2 text-white" @click="toggleMode()"> {{ mode }} </button>
-            </div>
-          </div>
-
-          <!-- Menu mobile (ícone de hambúrguer para telas pequenas) -->
-          <div class="sm:hidden flex items-center">
-            <button @click="toggleMenu" :class="bg">
-              <svg v-if="!isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="gray"
-                viewBox="0 0 24 24" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-              <svg v-if="isMenuOpen" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="gray"
-                viewBox="0 0 24 24" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Menu dropdown para telas pequenas -->
-        <div v-if="isMenuOpen" class="sm:hidden shadow-md absolute left-0 right-0 top-16 w-full border-b-2" :class="bg">
-          <div class="text-lg px-6 py-4 border-b-2 border-t-2">
-            <a href="index.html" :class="colorText">Início</a>
-          </div>
-          <div class="text-lg px-6 py-4 border-b-2">
-            <a @click="goToSection('projects-intro')" class="cursor-pointer" :class="colorText">Projetos</a>
-          </div>
-          <div class="text-lg px-6 py-4 ">
-            <button class="bg-gray-400 rounded-lg px-2 text-white" @click="toggleMode()"> {{ mode }} </button>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Seção Apresentação do Portifólio -->
-    <section class="mt-14 w-auto h-[60vh] p-2 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
-
-      <div id="init" class="flex flex-col items-center justify-center h-full">
-        <h1 class="text-4xl font-bold text-white">Matheus Gregorin</h1>
-        <p class="mt-4 text-lg text-white text-center">Seja bem vindo ao meu portifólio.</p>
-      </div>
-
-    </section>
-
-    <!-- Seção de chamada ao sobre mim -->
-    <section class="flex items-start justify-center h-[25vh] w-full cursor-pointer" :class="bg"
-      @click="goToSection('section-about')">
-      <div class="welcome" :class="bg">
-        <a class="cursor-pointer" href="#section-about" :class="colorText">Deixe-me apresentar</a>
-        <svg class="cursor-pointer" href="#section-about" width="56" height="56" fill="#acacac"
-          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 16l-4-4h8z" />
-          <path d="M12 20l-4-4h8z" />
-        </svg>
-
-      </div>
-
-    </section>
-
-    <!-- Seção sobre mim -->
-    <section id="section-about" class="grid w-full h-auto pt-16 pb-10 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1"
-      :class="bg">
-
-      <div id="photo" class="flex w-full h-auto p-6 items-center lg:justify-end md:justify-center sm:justify-center">
-        <img src="./assets/Profile.jpeg" alt="Imagem de perfil" class="w-full h-[60vh] object-cover bg-fixed">
-      </div>
-
-      <div id="my-apresentation" class="flex justify-center items-center w-full border-l-2 border-gray-300"
-        :class="colorText">
-        <div
-          class="w-full text-center text-md p-4 justify-center md:justify-center text-left sm:justify-center text-left"
-          class="card">
-          Me chamo Matheus Gregorin, sou um entusiasta de tecnologia com foco em desenvolvimento de software. Desde
-          2022, atuo profissionalmente como desenvolvedor back-end, sempre buscando evoluir minhas habilidades e
-          ampliar meu conhecimento na área. Tenho formação em Análise e Desenvolvimento de Sistemas pela SPTech
-          School, onde construí uma base sólida em lógica, arquitetura de sistemas e boas práticas de desenvolvimento.
-          Sou movido por desafios e motivado a aprender constantemente, o que me ajuda a me adaptar rapidamente a
-          diferentes projetos e equipes.
-        </div>
-      </div>
-    </section>
-
-    <div class="flex-col w-full h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Tecnologias de
-        conhecimento
-        <!-- <img src="/assets/sinal-de-pergunta.png" class="h-4 w-4 ml-2"
-          title="Você pode clicar na stack para ir a sua documentação." alt="Simbolo de interrogação"> -->
-      </h2>
-    </div>
-
-
-    <!-- Seção Tec -->
-    <section id="section-tec"
-      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[45vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black"
-      style="box-shadow: inset -10px 0 10px -10px rgb(255, 255, 255);">
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"> <img class="h-[22vh] w-full rounded-lg"
-          src="./assets/php.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/laravel.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/java.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/spring.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/nodejs.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/python.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/vueJs.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/react.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/javascript.jpg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/mysql.jpeg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/mongodb.jpeg" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[22vh] w-full rounded-lg"
-          src="./assets/sqlite.jpg" alt=""></div>
-    </section>
-
-    <div class="flex w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:hidden md:hidden sm:flex" :class="bg">
-      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-        style="transform: rotate(90deg);">
-        <path d="M12 16l-4-4h8z" />
-        <path d="M12 20l-4-4h8z" />
-      </svg>
-      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
-      </h2>
-    </div>
-
-    <div class="hidden w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:flex md:flex sm:hidden" :class="bg">
-      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Continue para ver
-        mais
-      </h2>
-      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-        style="transform: rotate(-90deg);">
-        <path d="M12 16l-4-4h8z" />
-        <path d="M12 20l-4-4h8z" />
-      </svg>
-    </div>
-
-    <div class="flex-col w-auto h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Estatistícas do
-        Desenvolvedor </h2>
-    </div>
-
-    <!-- Seção Dash -->
-    <section id="section-dash"
-      class="grid w-auto h-auto justify-center items-center pt-[8vh] pb-20 px-4 grid-cols-1 justify-center items-center bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
-
-      <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 w-full h-auto">
-
-        <div id="container-kpis"
-          class="grid grid-cols-1 h-auto width-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
-          <div id="qtdLanguages" :class="bg"
-            class="grid grid-cols-1 h-[15vh] bg-blue-400 m-2 rounded justify-center items-center">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Linguagens de Domínio:
-            </p>
-            <p id="qtdLangValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
-          </div>
-          <div id="qtdMerchants" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Profissionais:
-            </p>
-            <p id="qtdMerchantsValue" class="flex justify-center items-center text-lg" :class="colorText"> 5 </p>
-          </div>
-          <div id="qtdProjects" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Projetos Pessoais: </p>
-            <p id="qtdProjectsValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
-          </div>
-          <div id="qtdStars" :class="bg" class="grid grid-cols-1 h-[15vh] m-2 rounded">
-            <p class="flex justify-center items-center text-md h-auto" :class="colorText"> Estrelas em
-              Repositórios Pessoal: </p>
-            <p id="qtdStarValue" class="flex justify-center items-center text-lg" :class="colorText"> 0 </p>
-          </div>
-        </div>
-
-        <!-- Dash Pie -->
-        <div id="container-pie"
-          class="flex flex-col items-center lg:h-auto justify-center w-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-8">
-          <div id="pie" class="h-60 w-full">
-          </div>
-        </div>
-
-        <!-- Dash Line -->
-        <div id="container-line"
-          class="flex flex-col items-center lg:h-auto justify-center w-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-8">
-          <div id="line" class="h-60 w-full">
-          </div>
-        </div>
-
-        <!-- Dash Bar -->
-        <div id="container-bar"
-          class="flex flex-col items-center lg:h-auto justify-center w-full backdrop-blur-md bg-white/10 border border-white/30 mb-6 rounded-lg p-8">
-          <div id="bar" class="h-60 w-full">
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <div id="projects-intro" class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Projetos Pessoais
-      </h2>
-    </div>
-
-    <!-- Seção Projetos Pessoais -->
-    <section id="projects"
-      class="flex grid grid-cols-1 overflow-y-scroll w-full pt-10 pb-6 px-4 bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black lg:h-[110vh] sm:min-h-screen h-[90vh]">
-      <div id="list"
-        class="grid relative h-auto w-full place-items-center gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-
-        <div v-show="showProject"
-          class="absolute w-full rounded-lg lg:h-[95vh] p-6  sm:absolute h-auto p-4" :class="bg">
-          <div class="flex items-center space-x-4 w-full">
-            <hr class="w-full">
-            <svg class="cursor-pointer" width="18" height="18" @click="toggleProject(0, false)"
-              xmlns="http://www.w3.org/2000/svg" fill="none" stroke="gray" viewBox="0 0 24 24" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </div>
-          <div class="pt-6 text-4xl bold pb-2 overflow-x-hidden" :class="colorText"> {{ projectShow.name }}</div>
-          <div
-            class="grid h-auto w-auto px-4 pb-4 mb-2 border border-gray-200 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-            <div class="pt-4" :class="colorText">Projeto: {{ projectShow.private ? "Privado" : "Público" }} </div>
-            <div class="pt-4" :class="colorText">Linguagem: {{ projectShow.language ? projectShow.language : "Outros"}}
-            </div>
-            <div class="pt-4" :class="colorText"> Quantidade de commits: {{ qtdCommits }} </div>
-            <div class="pt-4" :class="colorText">Data de criação: {{ new
-              Date(projectShow.created_at).toLocaleString('pt-BR', {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit',
-              hour12: false // Para usar formato 24h
-              }) }}</div>
-            <div class="pt-4" :class="colorText">Última atualização: {{ new
-              Date(projectShow.pushed_at).toLocaleString('pt-BR', {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit',
-              hour12: false // Para usar formato 24h
-              }) }}</div>
-          </div>
-          <div class="pt-4" :class="colorText">
-            <p class="text-2xl pb-2">Descrição:</p>
-            <div class="flex h-[28vh] w-auto border border-gray-200 p-4 text-left overflow-y-scroll">
-              {{ projectShow.description ? projectShow.description : "Sem Descrição"}}
-            </div>
-          </div>
-          <div class="pt-4 pb-4 underline text-blue-500 cursor-pointer" @click="dispatchUrl()">Clique aqui para acessar
-            o
-            projeto
-          </div>
-          <hr>
-        </div>
-
-        <div v-if="!showProject" v-for="({name, created_at}, index) in projects" :key="index"
-          @click="toggleProject(index, true)"
-          class="flex h-[25vh] w-full justify-start items-center rounded text-white text-2xl cursor-pointer backdrop-blur-md bg-white/10 border border-white/30">
-          <div class="h-[15vh] w-[2vh] mx-4" :class="getRandomColorClass()"></div>
-          {{ name }}
-        </div>
-
-      </div>
-    </section>
-
-    <div id="projects-intro" class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
-      <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Conceitos &
-        Arquiteturas
-        <!-- <img src="/assets/sinal-de-pergunta.png" class="h-4 w-4 ml-2 lg:flex md:flex sm:hidden"
-          title="Você pode clicar na stack para ir a sua documentação." alt="Simbolo de interrogação"> -->
-      </h2>
-      </h2>
-    </div>
-
-    <section id="section-concepts"
-      class="flex flex-nowrap overflow-x-scroll pl-4 pr-4 space-x-4 items-center h-[45vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black"
-      style="box-shadow: inset -10px 0 10px -10px rgb(255, 255, 255);">
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/Clean.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/DDD.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/Tdd.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/Arch.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/SOLID.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/Repo.png" alt=""></div>
-      <div class="min-w-[200px] h-22 flex-shrink-0 rounded-lg"><img class="h-[28vh] w-full rounded-lg"
-          src="./assets/Dep.png" alt=""></div>
-    </section>
-
-    <div class="flex w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:hidden md:hidden sm:flex" :class="bg">
-      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-        style="transform: rotate(90deg);">
-        <path d="M12 16l-4-4h8z" />
-        <path d="M12 20l-4-4h8z" />
-      </svg>
-      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Deslize para o lado
-      </h2>
-    </div>
-
-    <div class="hidden w-auto h-[3vh] justify-end items-center px-4 py-4 flex lg:flex md:flex sm:hidden" :class="bg">
-      <h2 class="move" class="flex h-auto justify-center items-center text-sm" :class="colorText"> Continue para ver
-        mais
-      </h2>
-      <svg class="move" width="36" height="56" fill="#acacac" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-        style="transform: rotate(-90deg);">
-        <path d="M12 16l-4-4h8z" />
-        <path d="M12 20l-4-4h8z" />
-      </svg>
-    </div>
-
-    <div class="flex flex-col w-full h-auto justify-center items-center py-10" :class="bg">
-      <div id="projects-intro" class="flex flex-col w-full] h-auto justify-center items-center py-2" :class="bg">
-        <h2 class="flex w-full h-auto justify-center items-center pt-10 text-2xl" :class="colorText"> Redes sociais
-        </h2>
-      </div>
-      <div
-        class="w-auto h-auto p-4 flex justify-center items-center grid gap-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-        <div
-          @click="sendTo('https://mail.google.com/mail/?view=cm&tf=0&to=math.gregorin@gmail.com&su=Assunto&body=Corpo%20da%20mensagem')"
-          class="flex w-full h-auto justify-center items-center text-2xl" :class="colorText">
-          <img class="h-[10vh] w-[30vh] cursor-pointer"
-            src="https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red"
-            alt="gmail icon">
-        </div>
-        <div class="flex w-full h-auto justify-center items-center text-2xl" :class="colorText">
-          <img title="Adicione meu usuário: solomon_write_20550" class="h-[10vh] w-[30vh] cursor-pointer"
-            src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"
-            alt="gmail icon">
-        </div>
-        <div @click="sendTo('https://www.linkedin.com/in/matheus-gregorin-22b496197/')"
-          class="flex w-full h-auto justify-center items-center text-2xl" :class="colorText">
-          <img class="h-[10vh] w-[30vh] cursor-pointer"
-            src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-            alt="gmail icon">
-        </div>
-        <div @click="sendTo('https://github.com/matheus-gregorin')"
-          class="flex w-full h-auto justify-center items-center text-2xl" :class="colorText">
-          <img class="h-[10vh] w-[30vh] cursor-pointer"
-            src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
-            alt="gmail icon">
-        </div>
-      </div>
-    </div>
-
-    <!-- <section id="section-bottom"
-      class="flex pl-4 pr-4 items-center h-[20vh] w-full bg-fixed bg-gradient-to-tr from-blue-900 via-blue-600 to-black">
-    </section> -->
-
-  </div>
-
   <script>
-
-    const { createApp } = Vue;
-
-    createApp(
-      {
-        data() {
-          return {
-            isMenuOpen: false, // Estado para controlar o menu
-            isMode: false, // Estado para controlar o modo escuro
-            bg: 'bg-gray-900 text-white',
-            colorText: 'text-white',
-            mode: 'Modo light',
-            showProject: false,
-            projects: [],
-            projectShow: [],
-            qtdCommits: 0,
-            colors: [
-              'bg-gray-400',
-              'bg-blue-400',
-              'bg-green-400',
-              'bg-red-400',
-              'bg-yellow-400',
-              'bg-purple-400',
-              'bg-pink-400',
-              'bg-indigo-400',
-              'bg-teal-400',
-              'bg-orange-400',
-            ],
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#172554' },
+            slate: { 950: '#020617' }
           }
-        },
-        methods: {
-          toggleMenu() {
-            this.isMenuOpen = !this.isMenuOpen; // Alterna entre aberto e fechado
-          },
-          toggleMode() {
-            if (this.isMode) {
-              this.isMode = false;
-              this.bg = 'bg-gray-900';
-              this.colorText = 'text-white';
-              this.mode = 'Modo Light';
-
-            } else {
-              this.isMode = true;
-              this.bg = 'bg-gray-100';
-              this.colorText = 'text-gray-600';
-              this.mode = 'Modo Dark';
-            }
-          },
-          toggleProject(index, goToSection) {
-            this.showProject = !this.showProject; // Alterna entre aberto e fechado
-            this.projectShow = this.projects[index];
-            this.getCommits(); // Chama a função para obter os commits do projeto selecionado
-            if (goToSection) {
-              this.goToSection('projects-intro'); // Rola para a seção de projetos
-            }
-          },
-          goToSection(section) {
-            const element = document.getElementById(section);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          },
-          sendTo(to) {
-            window.open(to, '_blank');
-          },
-          getRandomColorClass() {
-            const randomIndex = Math.floor(Math.random() * this.colors.length);
-            return this.colors[randomIndex];
-          },
-          async dispatchUrl() {
-            const url = this.projectShow.html_url;
-            if (url) {
-              window.open(url, '_blank');
-            } else {
-              alert('URL não disponível');
-            }
-          },
-          async fetchRepositories() {
-            const resquest = await fetch('https://api.github.com/users/MatheusGregorin/repos');
-            return await resquest.json();
-          },
-          async getProjects() {
-            fetchRepositories().then(repositories => {
-              this.projects = repositories.map(repo => repo);
-            });
-          },
-          async fetchCommits(repo) {
-            const resquest = await fetch(`https://api.github.com/repos/MatheusGregorin/${repo}/commits`);
-            return await resquest.json();
-          },
-          async getCommits() {
-            if (this.projectShow.name) {
-              const commits = await this.fetchCommits(this.projectShow.name);
-              const qtdCommits = commits.length;
-              this.qtdCommits = qtdCommits;
-            }
-          }
-        },
-        mounted() {
-          this.getProjects();
         }
       }
-    ).mount('#app');
+    }
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Liste os IDs dos elementos que você quer animar
-      const animatedElementIds = [
-        'my-apresentation',
-        'projects',
-        'photo',
-        'section-dash',
-        'container-kpis',
-        'container-line',
-        'container-bar',
-        'container-pie'
-      ];
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      // 2. Converta os IDs em referências aos elementos DOM
-      const animatedElements = animatedElementIds.map(id => document.getElementById(id));
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/index.css">
 
-      // 3. Adicione o event listener para o scroll
-      window.addEventListener('scroll', () => {
-        // Para cada elemento na nossa lista
-        animatedElements.forEach(element => {
-          // Verifique se o elemento existe (para evitar erros se um ID não for encontrado)
-          if (element) {
-            const rect = element.getBoundingClientRect();
+  <!-- Scripts -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <script src="./js/echart.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
 
-            // Verifica se o elemento está visível na viewport (com uma margem)
-            const isVisible = rect.top < window.innerHeight - 50 && rect.bottom > 50;
+<body class="antialiased transition-colors duration-300">
 
-            if (isVisible) {
-              // Se visível, adiciona a classe para ativar a animação
-              console.log('Elemento visível:', element.id);
-              element.classList.add('is-visible');
-            } else {
-              // Se NÃO visível, remove a classe para "zerar" a animação
-              element.classList.remove('is-visible');
-            }
-          }
-        });
-      });
-    });
-  </script>
+  <div id="app" v-cloak :class="themeClasses.bg" class="min-h-screen">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-transparent transition-all duration-300"
+      :class="[isMenuOpen ? 'h-screen' : 'h-20', themeClasses.nav, { 'border-slate-200 dark:border-slate-800': !isMenuOpen }]">
 
+      <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="text-2xl font-bold tracking-tight font-heading">MG<span class="text-primary-500">.</span></a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a @click.prevent="goToSection('app')" href="#"
+            class="text-sm font-medium hover:text-primary-500 transition-colors">Início</a>
+          <a @click.prevent="goToSection('section-about')" href="#about"
+            class="text-sm font-medium hover:text-primary-500 transition-colors">Sobre</a>
+          <a @click.prevent="goToSection('projects-intro')" href="#projects"
+            class="text-sm font-medium hover:text-primary-500 transition-colors">Projetos</a>
+          <button @click="toggleMode"
+            class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+            <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.242 17.657l.707.707M6.343 6.343l.707.707M16.05 10.5c-.356-1.017-1.408-1.75-2.55-1.75s-2.194.733-2.55 1.75M12 14v2m-4-2h8m-4-4a2 2 0 100-4 2 2 0 000 4z" />
+            </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button @click="toggleMenu" class="md:hidden p-2">
+          <svg v-if="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Content -->
+      <div v-if="isMenuOpen" class="flex flex-col items-center justify-center space-y-8 h-[calc(100vh-80px)]">
+        <a @click="toggleMenu(); goToSection('app')" class="text-2xl font-bold font-heading">Início</a>
+        <a @click="toggleMenu(); goToSection('section-about')" class="text-2xl font-bold font-heading">Sobre</a>
+        <a @click="toggleMenu(); goToSection('projects-intro')" class="text-2xl font-bold font-heading">Projetos</a>
+        <button @click="toggleMode" class="text-lg font-medium bg-primary-600 text-white px-8 py-3 rounded-full">
+          Alternar Tema
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative pt-20 overflow-hidden">
+      <div class="hero-gradient absolute inset-0 -z-10"></div>
+
+      <section id="init" class="max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-bold font-heading mb-6 tracking-tight text-balance">
+          Matheus Gregorin
+        </h1>
+        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl mb-12">
+          Desenvolvedor Back-end apaixonado por construir sistemas robustos e escaláveis. Transformando café e código em
+          soluções de impacto.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button @click="goToSection('projects-intro')"
+            class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-primary-500/20">
+            Ver Projetos
+          </button>
+          <button @click="goToSection('section-about')"
+            class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all">
+            Sobre Mim
+          </button>
+        </div>
+
+        <div @click="goToSection('section-about')" class="mt-24 cursor-pointer welcome-animation">
+          <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="section-about" class="py-24 max-w-7xl mx-auto px-6 animate-on-scroll">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="relative group">
+            <div
+              class="absolute -inset-4 bg-primary-500/10 rounded-3xl blur-2xl group-hover:bg-primary-500/20 transition-all duration-500">
+            </div>
+            <img src="./assets/Profile.jpeg" alt="Matheus Gregorin"
+              class="relative rounded-2xl shadow-2xl object-cover aspect-square md:aspect-[4/5] w-full">
+          </div>
+          <div>
+            <span class="text-primary-500 font-bold tracking-widest uppercase text-sm">Apresentação</span>
+            <h2 class="text-4xl font-bold font-heading mt-4 mb-6">Construindo as bases do futuro digital</h2>
+            <div class="space-y-4 text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+              <p>Me chamo Matheus Gregorin, sou um entusiasta de tecnologia com foco em desenvolvimento de software.</p>
+              <p>Desde 2022, atuo profissionalmente como desenvolvedor back-end, sempre buscando evoluir minhas
+                habilidades e ampliar meu conhecimento na área. Formado em Análise e Desenvolvimento de Sistemas pela
+                SPTech School.</p>
+              <p>Sou movido por desafios e motivado a aprender constantemente, o que me ajuda a me adaptar rapidamente a
+                diferentes projetos e equipes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack Section -->
+      <section id="section-tec" class="py-24 transition-colors duration-300" :class="themeClasses.bgAlt">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+          <h2 class="text-3xl font-bold font-heading" :class="themeClasses.text">Tecnologias de domínio</h2>
+        </div>
+        <div class="flex tech-scroll overflow-x-auto space-x-8 px-8 pt-8 pb-12">
+          <div v-for="(tech, index) in techStack" :key="index"
+            class="min-w-[180px] md:min-w-[220px] aspect-square glass rounded-3xl flex flex-col items-center justify-center p-8 transition-all duration-300 hover:scale-110 hover:shadow-2xl">
+            <img :src="tech.icon" :alt="tech.name"
+              class="w-20 h-20 object-contain mb-6 grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100"
+              onerror="this.src='https://via.placeholder.com/150?text=Tech'">
+            <span class="text-lg font-semibold tracking-tight opacity-90">{{ tech.name }}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section id="section-dash" class="py-24 max-w-7xl mx-auto px-6 animate-on-scroll">
+        <header class="mb-16 text-center">
+          <h2 class="text-4xl font-bold font-heading mb-4">Estatísticas do Desenvolvedor</h2>
+          <p class="text-slate-500 dark:text-slate-400">Dados reais consumidos diretamente da API do GitHub</p>
+        </header>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div
+            v-for="(val, label, index) in { 'Linguagens': 'qtdLangValue', 'Colabs': 'qtdMerchantsValue', 'Pessoais': 'qtdProjectsValue', 'Estrelas': 'qtdStarValue' }"
+            :key="index" class="glass p-8 rounded-2xl text-center">
+            <p :id="val" class="text-3xl font-bold text-primary-500 mb-2">0</p>
+            <p class="text-xs uppercase tracking-widest text-slate-400">{{ label }}</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="glass p-6 md:p-8 rounded-2xl min-h-[350px] lg:min-h-[400px]">
+            <div id="pie" class="w-full h-full"></div>
+          </div>
+          <div class="glass p-6 md:p-8 rounded-2xl lg:col-span-2 min-h-[350px] lg:min-h-[400px]">
+            <div id="line" class="w-full h-full"></div>
+          </div>
+          <div class="glass p-6 md:p-8 rounded-2xl lg:col-span-3 min-h-[350px] lg:min-h-[400px]">
+            <div id="bar" class="w-full h-full"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects-intro" class="py-24 bg-primary-600 dark:bg-primary-950/20">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div class="max-w-2xl">
+              <h2 class="text-4xl font-bold font-heading text-white mb-4">Projetos Pessoais</h2>
+              <p class="text-primary-100/70 text-lg">Uma seleção de repositórios públicos que demonstram meu progresso e
+                experimentações.</p>
+            </div>
+            <a href="https://github.com/MatheusGregorin" target="_blank"
+              class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-colors flex items-center gap-2">
+              Ver GitHub <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+
+          <div v-if="loading" class="grid md:grid-cols-2 gap-8">
+            <div v-for="i in 4" :key="i" class="h-64 glass animate-pulse rounded-2xl"></div>
+          </div>
+
+          <div v-else class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card -->
+            <div v-for="(project, index) in projects" :key="index" @click="toggleProject(index, true)"
+              class="project-card glass p-8 rounded-2xl cursor-pointer group hover:border-primary-400 transition-all">
+              <div class="w-12 h-1 mb-6 rounded-full" :class="getRandomColorClass()"></div>
+              <h3 class="text-xl font-bold font-heading mb-2 text-white group-hover:text-primary-300">{{ project.name }}
+              </h3>
+              <p class="text-primary-100/50 text-sm line-clamp-2 mb-6">{{ project.description || 'Sem descrição.' }}</p>
+              <div class="flex items-center gap-4 text-xs font-bold text-primary-200">
+                <span class="bg-white/10 px-3 py-1 rounded-full">{{ project.language || 'Geral' }}</span>
+                <span>⭐ {{ project.stargazers_count }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Modal -->
+      <Transition name="fade">
+        <div v-if="showProject"
+          class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-950/80 backdrop-blur-xl">
+          <div class="glass max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 border-primary-500/30">
+            <div class="flex justify-between items-start mb-8">
+              <h3 class="text-3xl font-bold font-heading text-primary-500">{{ projectShow.name }}</h3>
+              <button @click="showProject = false" class="p-2 hover:bg-white/10 rounded-full transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 mb-8 text-sm">
+              <div class="p-4 glass rounded-xl">
+                <p class="text-slate-500 mb-1">Visibilidade</p>
+                <p class="font-bold">{{ projectShow.private ? 'Privado' : 'Público' }}</p>
+              </div>
+              <div class="p-4 glass rounded-xl">
+                <p class="text-slate-500 mb-1">Linguagem</p>
+                <p class="font-bold">{{ projectShow.language || 'Outros' }}</p>
+              </div>
+              <div class="p-4 glass rounded-xl">
+                <p class="text-slate-500 mb-1">Commits</p>
+                <p class="font-bold">{{ qtdCommits }}</p>
+              </div>
+              <div class="glass rounded-xl" style="padding: 0.5rem;">
+                <p class="text-slate-500 mb-1">Criado em</p>
+                <p class="font-bold">{{ new Date(projectShow.created_at).toLocaleDateString() }}</p>
+              </div>
+            </div>
+
+            <div class="mb-10">
+              <h4 class="text-lg font-bold mb-4">Descrição</h4>
+              <p class="text-slate-400 leading-relaxed">{{ projectShow.description || 'Sem descrição.' }}</p>
+            </div>
+
+            <div class="flex gap-4">
+              <a :href="projectShow.html_url" target="_blank"
+                class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-4 rounded-xl font-bold transition-colors"
+                style="padding: 0.5rem;">
+                Ver Repositório
+              </a>
+              <button @click="showProject = false"
+                class="px-8 bg-white/5 hover:bg-white/10 py-4 rounded-xl font-bold transition-colors">
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+  </div>
+  </Transition>
+
+  <!-- Footer / Social -->
+  <footer class="py-24 max-w-7xl mx-auto px-6 border-t border-slate-200 dark:border-slate-800">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl font-bold font-heading mb-6">Vamos conversar?</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg mb-8">Estou sempre aberto a novas oportunidades e
+          colaborações em projetos interessantes.</p>
+        <div class="flex gap-4">
+          <a href="https://linkedin.com/in/matheus-gregorin-22b496197/" target="_blank"
+            class="p-4 glass rounded-2xl hover:bg-primary-500 transition-all hover:text-white">
+            LinkedIn
+          </a>
+          <a href="https://github.com/MatheusGregorin" target="_blank"
+            class="p-4 glass rounded-2xl hover:bg-slate-900 transition-all hover:text-white">
+            GitHub
+          </a>
+          <a href="mailto:math.gregorin@gmail.com"
+            class="p-4 glass rounded-2xl hover:bg-red-500 transition-all hover:text-white">
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="glass p-10 rounded-3xl text-center">
+        <h3 class="text-xl font-bold mb-2">Desenvolvedor Back-end</h3>
+        <p class="text-slate-500 dark:text-slate-400">© 2026 Matheus Gregorin. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  </main>
+  </div>
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.3s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+      opacity: 0;
+    }
+  </style>
 
 </body>
 

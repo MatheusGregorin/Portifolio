@@ -1,245 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-@keyframes moveLeft {
+body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.5);
+}
+
+/* Animations */
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateX(-100px);
-        /* Posição inicial */
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0px);
-        /* Posição final */
+        transform: translateY(0);
     }
 }
 
-/* Animação de cima para baixo */
-@keyframes moveDown {
-    0% {
-        top: 0;
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scrollDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
     50% {
-        top: 40px;
-        /* Ajuste a distância para o movimento */
-    }
-
-    100% {
-        top: 0;
+        transform: translateY(10px);
     }
 }
 
-/* Animação da esquersa para direita */
-@keyframes moveRight {
-    0% {
-        right: 0;
-    }
-
-    50% {
-        right: 5px;
-        /* Ajuste a distância para o movimento */
-    }
-
-    100% {
-        right: 0;
-    }
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.back {
-    background: linear-gradient(to right, #00274e, #272727);
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.welcome {
-    height: 18vh;
-    width: 100%;
-    font-size: 1.4rem;
-    display: flex;
-    background-color: rgba(179, 179, 179, 0.192);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    animation: moveDown 2s ease-in-out infinite;
-    text-align: center;
-    transition: 0.3s ease-in-out;
-    border-radius: 32px;
+/* Hero Section Specifics */
+.hero-gradient {
+    background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent),
+        radial-gradient(circle at bottom left, rgba(30, 64, 175, 0.15), transparent);
 }
 
-.welcome:hover {
-    background-color: rgba(139, 139, 139, 0.192);
+/* Improved Contrast Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.card {
-    height: 40vh;
-    min-width: 100%;
-    /* animation: slide 50s ease-in-out infinite; */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 10px;
+.dark .glass {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.move {
-    position: relative;
-    animation: moveRight 1.5s ease-in-out infinite;
-    transition: 1s ease-in-out;
+/* Custom Utilities */
+.text-balance {
+    text-wrap: balance;
+}
+
+.welcome-animation {
+    animation: scrollDown 2s infinite ease-in-out;
 }
 
 #init {
-    opacity: 1;
-    animation: moveLeft 2.0s ease-in-out;
+    animation: fadeInUp 1.2s ease-out;
 }
 
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#my-apresentation {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+/* Tech Carousel Smoothing */
+.tech-scroll {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-/* Classe que será adicionada para ativar a animação */
-#my-apresentation.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+.tech-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
 }
 
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#projects {
-    opacity: 0;
-    transform: translateY(2px);
-    transition: opacity 2.5s ease-out, transform 0.8s ease-out;
+/* Project Card Hover */
+.project-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Classe que será adicionada para ativar a animação */
-#projects.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#photo {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
-}
-
-/* Classe que será adicionada para ativar a animação */
-#photo.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#section-dash {
-    opacity: 0;
-    transform: translateY(2px);
-    transition: opacity 2.5s ease-out, transform 1.8s ease-out;
-}
-
-/* Classe que será adicionada para ativar a animação */
-#section-dash.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#container-kpis {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
-}
-
-/* Classe que será adicionada para ativar a animação */
-#container-kpis.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#container-pie {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
-}
-
-/* Classe que será adicionada para ativar a animação */
-#container-pie.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#container-bar {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
-}
-
-/* Classe que será adicionada para ativar a animação */
-#container-bar.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos iniciais da div (invisível e levemente deslocada) */
-#container-line {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 3.5s ease-out, transform 1.8s ease-out;
-}
-
-/* Classe que será adicionada para ativar a animação */
-#container-line.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 640px) {
-    .welcome {
-        font-size: 1.10rem;
-        /* equivalente a 14px */
-    }
-
-    .corrossel {
-        width: 40vh;
-    }
-
-    .card {
-        margin-left: 0px;
-        margin-right: 10px;
-    }
-
-    @keyframes slide {
-        0% {
-            transform: translateX(0);
-        }
-
-        30% {
-            transform: translateX(0);
-        }
-
-        31% {
-            transform: translateX(-342px);
-        }
-
-        60% {
-            transform: translateX(-342px);
-        }
-
-        61% {
-            transform: translateX(-694px);
-        }
-
-        95% {
-            transform: translateX(-694px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
-    }
+/* Global transitions */
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
 }

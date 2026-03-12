@@ -35,16 +35,15 @@ createApp({
         const loading = ref(true);
 
         const techStack = [
-            { name: 'JavaScript', icon: './assets/javascript.jpg' },
-            { name: 'Node.js', icon: './assets/nodejs.jpg' },
-            { name: 'Vue.js', icon: './assets/vueJs.jpg' },
-            { name: 'React', icon: './assets/react.jpg' },
-            { name: 'Java', icon: './assets/java.jpg' },
-            { name: 'Spring', icon: './assets/spring.jpg' },
-            { name: 'Python', icon: './assets/python.png' },
             { name: 'PHP', icon: './assets/php.png' },
             { name: 'Laravel', icon: './assets/laravel.png' },
-            { name: 'SQLite', icon: './assets/sqlite.jpg' },
+            { name: 'Python', icon: './assets/python.png' },
+            { name: 'Django', icon: './assets/django.png' },
+            { name: 'Go', icon: './assets/GO.png' },
+            { name: 'Docker', icon: './assets/Docker.png' },
+            { name: 'JavaScript', icon: './assets/javascript.jpg' },
+            { name: 'React', icon: './assets/react.jpg' },
+            { name: 'Vue.js', icon: './assets/vueJs.jpg' },
             { name: 'SOLID', icon: './assets/SOLID.png' },
             { name: 'DDD', icon: './assets/DDD.png' },
             { name: 'TDD', icon: './assets/Tdd.png' },
